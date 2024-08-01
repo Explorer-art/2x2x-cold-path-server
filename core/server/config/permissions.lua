@@ -7,9 +7,6 @@ t = {
 			inheritance = { -- наследование прав групп
 			},
 
-			-- prefix = "[*]",
-			-- prefix_color = "#b00000",
-
 			prefix = "[STAFF]", -- префикс
 			prefix_color = "#71cc2e", -- цвет префикса
 			suffix = false, -- суффикс
