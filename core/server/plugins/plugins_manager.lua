@@ -248,7 +248,7 @@ function M.parse_command(cmd, client)
 
 	for k, v in pairs(commands_list) do
 		if k == cmd[1] then
-			if not client or plugins_function.check_command_permission(client, cmd[1]) or cmd[1] == "/license" then
+			if not client or plugins_function.check_command_permission(client, cmd[1]) then
                 local client_data = get_data("clients_data")[client]
                 log("players", "Player "..client_data.name.." use command: "..cmd[1].." "..(cmd[2] or "").." "..(cmd[3] or ""))
 				commands_list[k](client, cmd)

@@ -15,7 +15,7 @@ t = {
 			suffix = false, -- суффикс
 			suffix_color = "#ffffff", -- цвет суффикса
 			exempt = true, -- иммунитет от наказаний
-			minimum_restart_step = 0,
+			minimum_restart_step = 0, -- Минимальный ход для рестарта
 
 			permissions = { -- права
 			}
@@ -127,26 +127,8 @@ t = {
 				"/unban"
 			}
 		},
-		prem = {
-			priority = 6,
-			inheritance = {
-				"legend"
-			},
-
-			prefix = "[$PREM$]",
-			prefix_color = "#0f93ff",
-			suffix = false,
-			exempt = false,
-			minimum_restart_step = 35,
-
-			permissions = {
-				"/bonus",
-				"/prefix",
-				"/removeprefix"
-			}
-		},
 		legend = {
-			priority = 7,
+			priority = 6,
 			inheritance = {
 				"default"
 			},
@@ -166,7 +148,7 @@ t = {
 			}
 		},
 		default = {
-			priority = 8,
+			priority = 7,
 			inheritance = {
 			},
 
@@ -193,7 +175,8 @@ t = {
 				"/ignore",
 				"/level",
 				"/legend",
-				"/discord"
+				"/discord",
+				"/license"
 			}
 		}
 	},

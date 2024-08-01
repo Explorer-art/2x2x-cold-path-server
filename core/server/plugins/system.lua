@@ -16,8 +16,6 @@ local civilization_reset_cooldown = 30
 
 local welcome_message = require "core.server.config.welcome_message"
 
-local welcome_message_data = welcome_message.welcome_message
-
 local function send_notification_message(client, message)
 	if api.get_data("clients_data")[client] then
         local t = {
@@ -304,10 +302,6 @@ local function clearchat(client, args)
 	api.call_function("chat_message", "Чат очищен!", "system")
 end
 
-local function prem(client)
-    api.call_function("chat_message", "<color=#FF69B4>===========================</color><color=white>\n\nКоманды доступные </color><color=#00bfff>[$PREM$]</color><color=white>:\n\n</color><color=red>/ng</color><color=white> - сделать рестарт</color>\n<color=orange>/slist</color><color=white> - список сценариев\n</color><color=yellow>/sc</color><color=white> - поставить сценарий\n</color><color=#00BC00>/sm</color><color=white> - поставить карту\n</color><color==#42AAFF>/bonus</color><color=white> - бонус 50 тыс. монет\n</color><color=#800080>/bc</color><color=white> - сообщение от имени сервера</color>\n<color=#8b00ff>/prefix</color><color=white> - изменить свой префикс</color>\n<color=#B00000>/removeprefix</color><color=white> - удалить свой префикс</color>\n<color==#FF69B4>===========================</color>", "message", true, client)
-end
-
 local function get_legend(client, args)
     local client_data = api.get_data("clients_data")[client]
     local client_name = client_data.name
@@ -336,7 +330,7 @@ local function discord(client)
 end
 
 function M.on_player_joined(client)
-	api.call_function("chat_message", welcome_message_data, "message", true, client)
+	api.call_function("chat_message", welcome_message.welcome_message, "message", true, client)
 end
 
 local function get_client_by_name(name)
@@ -385,7 +379,6 @@ function M.init(_api)
 	api.register_command("/set", set)
 	api.register_command("/bc", broadcast)
 	api.register_command("/clearchat", clearchat)
-	api.register_command("/prem", prem)
 	api.register_command("/legend", get_legend)
 	api.register_command("/discord", discord)
 	api.register_function("send_notification_message", send_notification_message)

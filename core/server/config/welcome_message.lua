@@ -7,8 +7,8 @@ t = {
 	<color=white>Посмотреть свой уровень - </color><color=#FF69B4>/level</color>
 	<color=white>Наш Discord: </color><a=discord><color=#7289DA>[Присоединиться]</color></a>
 
-	-- Удачной игры!
-	-- <color=#FF69B4>=============================</color>]]
+	Удачной игры!
+	<color=#FF69B4>=============================</color>]]
 }
 
 return t

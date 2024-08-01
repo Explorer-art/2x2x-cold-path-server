@@ -6,22 +6,22 @@ local ltn12 = require"ltn12"
 local json = require "scripts.custom_utils.json"
 local flatdb = require "scripts.utils.flatdb"
 
-local server_settings = require "server_settings"
-
 local api
 
 local db
 
+local server_settings = require "server_settings"
+
 local permissions = require "core.server.config.permissions"
 
 local chat_message = function(text,type, just_for_host, client)
-	local prefix = server_settings.server_data.server_prefix
+	local prefix = server_settings.server_info.data.server_prefix
 	local c = "white"
 
 	if type == "system" then
 		api.call_function("chat_function", prefix.."<color=white>"..text.."</color>", just_for_host, client)
 	elseif type == "error" then
-		prefix = server_settings.server_data.error_prefix
+		prefix = server_settings.server_info.data.error_prefix
 		api.call_function("chat_function", prefix.."<color=red>"..text.."</color>", just_for_host, client)
 		c = "red"
 	else
