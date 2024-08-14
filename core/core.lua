@@ -331,16 +331,17 @@ function M.trade(from, to, from_list, to_list)
 end
 
 function M.urge_allies(land, enemy)
-	if relations.is_vassal(enemy) then
-		enemy = relations.is_vassal(enemy)
-	end
-	for k, v in pairs(game_data.lands[land].allies) do
-		if not game_data.lands[v].defeated then
-			if relations.available_war(v, enemy) then
-				offers.register("war", v, enemy)
-			end
-		end
-	end
+	-- if relations.is_vassal(enemy) then
+	-- 	enemy = relations.is_vassal(enemy)
+	-- end
+	-- for k, v in pairs(game_data.lands[land].allies) do
+	-- 	if not game_data.lands[v].defeated then
+	-- 		if relations.available_war(v, enemy) then
+	-- 			offers.register("war", v, enemy)
+	-- 		end
+	-- 	end
+	-- end
+	return
 end
 
 function M.support_revolt(from, to, value)
