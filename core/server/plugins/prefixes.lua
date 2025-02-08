@@ -7,7 +7,10 @@ local api
 
 local db
 
-local maximum_lenght_prefix = 25
+local permissions = require "core.server.config.permissions"
+local groups = permissions.groups
+
+local maximum_prefix_length = 15
 
 local function validate_color(hex_color)
     if string.len(hex_color) < 3 then
@@ -20,7 +23,7 @@ local function validate_color(hex_color)
 end
 
 local function validate_lenght_prefix(prefix)
-    if string.len(prefix) > maximum_lenght_prefix then
+    if string.len(prefix) > maximum_prefix_length then
         return false
     end
     
@@ -31,14 +34,22 @@ function prefix(client, args)
     local client_data = api.get_data("clients_data")[client]
     local client_name = client_data.name
     local color = args[2]
-    local prefix = join(3, " ", args)
-    
-    if prefix then
-        local i, j = string.find(prefix, '|')
+    local prefix = table.concat(args, " ", 3)
+
+    if not args[3] then
+        api.call_function("chat_message", "/prefix [цвет] [префикс]\nОбратите внимание, цвет должен быть в HEX-формате и начинаться с #", "error", true, client)
+        return false
     end
+
+    local i, j = string.find(prefix, '|')
 
     if i and j then
         api.call_function("chat_message", "Вы используете запрещённые символы в префиксе!", "error", true, client)
+        return false
+    end
+
+    if not validate_length_prefix(prefix) then
+        api.call_function("chat_message", "Длина префикса не должна превышать ".. maximum_prefix_length .. " символов!", "error", true, client)
         return false
     end
 
@@ -58,15 +69,18 @@ function prefix(client, args)
 end
 
 function set_prefix(client, args)
+    if not args[4] then
+        api.call_function("chat_message", "/setprefix [ник] [цвет] [префикс]", "error", true, client)
+        return false
+    end
+
     local cl = api.call_function("get_client_by_name", args[2])
     local cl_data = api.get_data("clients_data")[cl]
     local cl_name = cl_data.name
     local color = args[3]
     local prefix = args[4]
-    
-    if prefix then
-        local i, j = string.find(prefix, "|")
-    end
+
+    local i, j = string.find(prefix, '|')
 
     if i and j then
         api.call_function("chat_message", "Вы используете запрещённые символы в префиксе!", "error", true, client)
@@ -90,8 +104,9 @@ end
 
 -- команда сброса префикса
 function remove_prefix(client, args)
+    local client_data = api.get_data("clients_data")[client]
+
     if not args[2] then
-        local client_data = api.get_data("clients_data")[client]
         local client_name = client_data.name
 
         if db.players_data[client_name].custom_prefix then
@@ -103,7 +118,7 @@ function remove_prefix(client, args)
         else
             api.call_function("chat_message", "У вас не установлен префикс!", "error", true, client)
         end
-    elseif args[2] and client_data.permissions_group == "admin" then
+    elseif args[2] and groups[client_data.group].priority < 3 then
         local cl = api.call_function("get_client_by_name", args[2])
         local cl_data = api.get_data("clients_data")[cl]
         local cl_name = cl_data.name
