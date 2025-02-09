@@ -22,8 +22,8 @@ local function validate_color(hex_color)
     return true
 end
 
-local function validate_lenght_prefix(prefix)
-    if string.len(prefix) > maximum_prefix_length then
+local function validate_prefix_length(prefix)
+    if prefix and string.len(prefix) > maximum_prefix_length then
         return false
     end
     
@@ -48,7 +48,7 @@ function prefix(client, args)
         return false
     end
 
-    if not validate_length_prefix(prefix) then
+    if not validate_prefix_length(prefix) then
         api.call_function("chat_message", "Длина префикса не должна превышать ".. maximum_prefix_length .. " символов!", "error", true, client)
         return false
     end
