@@ -461,16 +461,10 @@ local function next()
 			save_system.save(game_data)
 		end
 
-		local start_time = socket.gettime()
-
 		plugin.before_next()
 		ai.handle()
 		core.next()
 		ai.late_handle()
-
-		local end_time = socket.gettime()
-
-		print("Step time: " .. (end_time - start_time) .. " sec")
 
 		for k, v in pairs(clients_data) do
 			if v.state and (v.state == "in_game" or v.state == "observer") then
