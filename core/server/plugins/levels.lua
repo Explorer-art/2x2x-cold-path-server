@@ -79,7 +79,7 @@ function M.init(_api)
 	end
 
 	api.register_command("/level", get_level)
-	api.register_command("/set_level", set_level)
+	api.register_command("/setlevel", set_level)
 	api.register_command("/set_exp", set_exp)
 end
 

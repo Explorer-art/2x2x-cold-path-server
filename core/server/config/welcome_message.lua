@@ -1,13 +1,12 @@
 t = {
-	welcome_message = [[<color==#FF69B4>=============================</color>
-	<color=white>Добро пожаловать на </color><color=#FF69B4>2x2x</color><color=white>!
+	welcome_message = [[
+	<color==#FF69B4>=============================</color>
+	<color=white>Добро пожаловать на <color=#FF69B4>2d2d</color>!</color>
 
-	Список команд - </color><color=#FF69B4>/h</color>
-	<color=white>Получить легенду - </color><color=#FF69B4>/legend</color>
-	<color=white>Посмотреть свой уровень - </color><color=#FF69B4>/level</color>
-	<color=white>Наш Discord: </color><a=discord><color=#7289DA>[Присоединиться]</color></a>
+	<color=white>Добавлены новые команды <color=#FF69B4>/prefix</color> и <color=#FF69B4>/removeprefix</color></color>
+	<color=white>Доступ начиная с <color=#FF69B4>Легенды</color></color>
 
-	Удачной игры!
+	<color=white>Удачной игры!</color>
 	<color=#FF69B4>=============================</color>]]
 }
 

@@ -8,17 +8,18 @@ local flatdb = require 'scripts.utils.flatdb'
 local db
 
 local permissions = require "core.server.config.permissions"
+local groups = permissions.groups
 
 local function get_commands_for_group(group)
     local t = {
         -- "/ban" = true
     }
 
-    for key, value in ipairs(permissions.groups[group].permissions) do
+    for key, value in ipairs(groups[group].permissions) do
         t[value] = true
     end
 
-    for key, value in ipairs(permissions.groups[group].inheritance) do
+    for key, value in ipairs(groups[group].inheritance) do
         local l = get_commands_for_group(value)
         
         for k, v in pairs(l) do
@@ -52,6 +53,7 @@ function M.init(_api)
 	api = _api
 
 	permissions = require "core.server.config.permissions"
+	groups = permissions.groups
 
 	api.register_function("set_permissions_group", set_permissions_group)
 	api.register_function("check_command_permission", check_command_permission)

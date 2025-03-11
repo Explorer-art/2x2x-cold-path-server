@@ -293,9 +293,9 @@ local function calc_diplomacy(land)
 		elseif v[2] == "vassal" then
 			-- perfomance.continue_state("vassal")
 			-- print("Check vassal offer: ", v[1], v[3], land)
-			if game_data.lands[land].num_of_provinces <= 3 and game_data.lands[land].army * 3 < game_data.lands[v[3]].army then
-				accept_offer(v[1])
-			end
+			-- if game_data.lands[land].num_of_provinces <= 3 and game_data.lands[land].army * 3 < game_data.lands[v[3]].army then
+			-- 	accept_offer(v[1])
+			-- end
 			-- perfomance.finish_state("vassal")
 		elseif v[2] == "trade" then
 			-- perfomance.continue_state("trade")

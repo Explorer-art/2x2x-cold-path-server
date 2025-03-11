@@ -15,7 +15,7 @@ local api
 local permissions = require "core.server.config.permissions"
 local groups = permissions.groups
 
-local maximal_ban_time_junior_moderator = 24 -- Максимальное время бана младшего
+local max_ban_time_junior_moderator = 24
 
 local function check_exempt(client, cl, client_data, cl_data)
     if groups[cl_data.group].priority <= groups[client_data.group].priority then
@@ -37,12 +37,12 @@ local function check_exempt_offline(client_data, name)
     return true
 end
 
-local function check_ban(uuid, unique_id)
+local function check_ban(uuid, unique_id, ip)
     for key, value in pairs(db.banned) do
         -- pprint(value, socket.gettime())
         if value.ban_time < socket.gettime() then
             db.banned[key] = nil
-        elseif value.uuid == uuid or value.unique_id == unique_id then
+        elseif value.uuid == uuid or value.unique_id == unique_id or value.ip == ip then
             return value.ban_time, value.reason
         end
     end
@@ -70,9 +70,9 @@ local function banip(client, args)
         db.banned_ips[ip] = true
         db:save()
 
-        api.call_function("chat_message", "Айпи "..ip.." забанен!", "system", true, client)
+        api.call_function("chat_message", "Айпи " .. ip .. " забанен!", "system", true, client)
     else
-        api.call_function("chat_message", "Айпи "..ip.." уже забанен!", "system", true, client)
+        api.call_function("chat_message", "Айпи " .. ip .. " уже забанен!", "system", true, client)
     end
 end
 
@@ -88,9 +88,9 @@ local function unbanip(client, args)
         db.banned_ips[ip] = nil
         db:save()
 
-        api.call_function("chat_message", "Айпи "..ip.." разбанен!", "system", true, client)
+        api.call_function("chat_message", "Айпи " .. ip .. " разбанен!", "system", true, client)
     else
-        api.call_function("chat_message", "Айпи "..ip.." не забанен!", "system", true, client)
+        api.call_function("chat_message", "Айпи " .. ip .. " не забанен!", "system", true, client)
     end
 end
 
@@ -104,6 +104,9 @@ local function ban(client, args)
     local client_data = api.get_data("clients_data")[client]
     local cl_nickname = args[2]
     local client_uuid = client_data.uuid
+    local uuid
+    local unique_id
+    local ip
 
     if not args[4] then
         api.call_function("chat_message", "/ban [ник] [время] [причина]", "error", true, client)
@@ -114,7 +117,7 @@ local function ban(client, args)
     local cl = api.call_function("get_client_by_name", args[2])
     local admin_name = api.get_data("clients_data")[client].name
 
-    if t > minimal_ban_time_junior_moderator and api.call_function("get_group", client) == "moder" then
+    if t > max_ban_time_junior_moderator and api.call_function("get_group", client) == "moder" then
         api.call_function("chat_message", "Вы не можете забанить игрока больше, чем на 5 часов!", "error", true, client)
         return false
     end
@@ -132,6 +135,7 @@ local function ban(client, args)
         
         uuid = api.get_data("clients_data")[cl].uuid
         unique_id = api.get_data("clients_data")[cl].unique_id
+        ip = api.get_data("clients_data")[cl].ip
     else
         if db.players_data[cl_name] then
             if db.banned[cl_name] then
@@ -141,6 +145,7 @@ local function ban(client, args)
 
             uuid = db.players_data[cl_name].uuid
             unique_id = db.players_data[cl_name].unique_id
+            ip = db.players_data[cl_name].ip
         else
             api.call_function("chat_message", "Неизвестный ник!", "error", true, client)
             return false
@@ -150,10 +155,11 @@ local function ban(client, args)
     local reason = join(args, " ", 4)
 
     local ban_table = {
+        ip = ip,
         uuid = uuid,
         unique_id = unique_id,
         ban_time = ban_time,
-        reason = "Админ: "..admin_name.."."..reason,
+        reason = "Админ: " .. admin_name .. ". Вы забанены на: " .. t .. " часов. Причина: " .. reason,
         name = cl_name
     }
 
@@ -164,7 +170,7 @@ local function ban(client, args)
         api.call_function("kick", cl, args)
     end
 
-    api.call_function("chat_message", args[2] .. " забанен "..admin_name.." на " .. t .. " часов, по причине: "..reason, "system")
+    api.call_function("chat_message", args[2] .. " забанен " .. admin_name .. " на " .. t .. " часов, по причине: "..reason, "system")
 end
 
 local function unban(client, args)
@@ -181,9 +187,9 @@ local function unban(client, args)
         db.banned[cl_name] = nil
         db:save()
 
-        api.call_function("chat_message", "Игрок "..name.." успешно разбанен!", "system", true, client)
+        api.call_function("chat_message", "Игрок " .. name .. " успешно разбанен!", "system", true, client)
     else
-        api.call_function("chat_message", "Игрок "..cl_name.." не забанен!", "error", true, client)
+        api.call_function("chat_message", "Игрок " .. cl_name .. " не забанен!", "error", true, client)
     end
 end
 
@@ -256,7 +262,7 @@ local function mute(client, args)
     }
     db:save()
 
-    api.call_function("chat_message", "Игрок " ..cl_name.. " замьючен "..admin_name.." по причине: "..reason, "system")
+    api.call_function("chat_message", "Игрок " .. cl_name .. " замьючен " .. admin_name .. " по причине: " .. reason, "system")
 end
 
 local function unmute(client, args)
@@ -286,48 +292,101 @@ local function forcenext()
 end
 
 local function get_info(client, args)
-    if args[2] then
-        if not db.players_data[args[2]] then
-            api.call_function("chat_message", "Неизвестный ник!", "error", true, client)
-            return false
-        end
-        
-        local text = inspect(db.players_data[args[2]] or {})
-        
-        api.call_function("send_notification_message", client, "Информация о игроке "..args[2]..": \n"..text)
+    if not args[2] then
+        api.call_function("chat_message", "/info [ник]", "error", true, client)
+        return false
     end
+
+    if not db.players_data[args[2]] then
+        api.call_function("chat_message", "Неизвестный ник!", "error", true, client)
+        return false
+    end
+        
+    local text_1 = inspect(db.players_data[args[2]] or {})
+    local text_2 = inspect(db.played_time_data[args[2]] or {})
+        
+    api.call_function("send_notification_message", client, "Информация о игроке " .. args[2] .. ": \n" .. text_1 .. "\n" .. text_2)
 end
 
 local function role(client, args)
     local client_data = api.get_data("clients_data")[client]
-    local cl_name = args[2]
-    local new_role = args[3]
 
-    if not args[2] then
+    if not args[3] then
         api.call_function("chat_message", "/role [ник] [роль]", "error", true, client)
         return false
     end
-
-    local cl = api.call_function("get_client_by_name", args[2])
     
-    if cl then
-        local cl_data = api.get_data("clients_data")[cl]
+    local cl_name = args[2]
+    local new_role = args[3]
 
+    if not groups[args[3]] then
+        api.call_function("chat_message", "Неизвестная роль!", "error", true, client)
+        return false
+    end
+
+    if args[3] == "operator" then
+        api.call_function("chat_message", "Нельзя выдать роль оператора!", "error", true, client)
+        return false
+    end
+    
+    if db.players_data[cl_name] then
         db.players_data[cl_name].group = new_role
         db:save()
 
-        api.call_function("set_permissions_group", cl, new_role)
+        api.call_function("chat_message", "Игрок " .. cl_name .. " получил новую роль " .. new_role, "system", true, client)
     else
-        if db.players_data[cl_name] then
-            db.players_data[cl_name].group = new_role
-            db:save()
-        else
-            api.call_function("chat_message", "Неизвестный ник!", "error", true, client)
-            return false
+        api.call_function("chat_message", "Неизвестный ник!", "error", true, client)
+    end
+end
+
+local function role_info(client, args)
+    local role = args[2]
+
+    if not args[2] then
+        api.call_function("chat_message", "/role_info [роль]", "error", true, client)
+        return false
+    end
+
+    if not groups[args[2]] then
+        api.call_function("chat_message", "Неизвестная роль!", "error", true, client)
+        return false
+    end
+
+    local result = ""
+
+    for key, value in pairs(db.players_data) do
+        if value.group == role then
+            result = result..key.."\n"
         end
     end
 
-    api.call_function("chat_message", "Игрок "..cl_name.." получил новую роль "..new_role, "system", true, client)
+    api.call_function("send_notification_message", client, result)
+end
+
+local function reset_user(client, args)
+    local client_data = api.get_data("clients_data")[client]
+
+    if not args[2] then
+        api.call_function("chat_message", "/reset_user [ник]", "error", client, true)
+        return false
+    end
+
+    local cl_name = args[2]
+
+    if db.players_data[cl_name] then
+        -- Проверка на приоритет роли
+        if groups[db.players_data[client_data.name].group].priority > groups[db.players_data[cl_name].group].priority then
+            api.call_function("chat_message", "Вы не можете сбросить аккаунт игрока с ролью выше чем у вас!", "error", client, true)
+            return false
+        end
+
+        db.players_data[cl_name] = nil
+        db:save()
+
+        api.call_function("chat_message", "Аккаунт " .. cl_name .. " сброшен!", "system", client, true)
+    else
+        api.call_function("chat_message", "Неизвестный ник!", "error", client, true)
+    end
 end
 
 local function history(client, args)
@@ -376,6 +435,8 @@ function M.init(_api)
     api.register_command("/forcenext", forcenext)
     api.register_command("/info", get_info)
     api.register_command("/role", role)
+    api.register_command("/role_info", role_info)
+    api.register_command("/reset_user", reset_user)
     api.register_command("/history", history)
     api.register_function("ban", ban)
     game_data.difficulty = server_settings.plugin.difficulty or "standard"
@@ -385,10 +446,10 @@ function M.verify_registration(client, client_data)
     local cl_data = api.get_data("clients_data")[client]
     local cl_unique_id = cl_data.unique_id
 
-    local timestamp, reason = check_ban(client_data.uuid, client_data.ip, client_data.unique_id)
+    local timestamp, reason = check_ban(client_data.uuid, client_data.unique_id, client_data.ip)
 
     if timestamp then
-        return false, "Вы забанены до: " .. os.date("%c", timestamp) .. "\nПричина: " .. reason
+        return false, "Вы забанены до: " .. os.date("%c", timestamp) .. "\n" .. reason .. "\n\nЕсли вы считаете что бан несправедливый, вы можете подать аппеляцию в нашем Discord."
     end
 
     if check_banip(client_data.ip) then

@@ -7,12 +7,12 @@ t = {
 			inheritance = { -- наследование прав групп
 			},
 
-			prefix = "[STAFF]", -- префикс
-			prefix_color = "#71cc2e", -- цвет префикса
+			prefix = "[OP]", -- префикс
+			prefix_color = "#b00000", -- цвет префикса
 			suffix = false, -- суффикс
 			suffix_color = "#ffffff", -- цвет суффикса
 			exempt = true, -- иммунитет от наказаний
-			minimum_restart_step = 0, -- Минимальный ход для рестарта
+			minimum_restart_step = 0,
 
 			permissions = { -- права
 			}
@@ -29,7 +29,8 @@ t = {
 			minimum_restart_step = 0,
 
 			permissions = {
-				"/players"
+				"/info",
+				"/reset_user"
 			}
 		},
 		chief_admin = {
@@ -46,8 +47,9 @@ t = {
 
 			permissions = {
 				"/role",
-				"/restart",
-				"/forcenext"
+				"/role_info",
+				"/forcenext",
+				"/setprefix"
 			}
 		},
 		senior_admin = {
@@ -63,25 +65,9 @@ t = {
 			minimum_restart_step = 0,
 
 			permissions = {
-				"/invise",
+				"/bonus",
 				"/socialspy",
-				"/setprefix",
-				"/removeprefix"
-			}
-		},
-		staff = {
-			priority = 4,
-			inheritance = {
-				"admin"
-			},
-
-			prefix = "[STAFF]",
-			prefix_color = "#71cc2e",
-			suffix = false,
-			exempt = false,
-			minimum_restart_step = 15,
-
-			permissions = {
+				"/restart"
 			}
 		},
 		admin = {
@@ -91,13 +77,15 @@ t = {
 			},
 
 			prefix = "[А]",
-			prefix_color = "#71cc2e",
+			prefix_color = "#cc0000",
 			suffix = false,
 			exempt = false,
 			minimum_restart_step = 15,
 
 			permissions = {
-				"/banip",
+				"/unban",
+				"/reciv",
+				"/invise",
 				"/clearchat"
 			}
 		},
@@ -108,49 +96,65 @@ t = {
 			},
 
 			prefix = "[М]",
-			prefix_color = "#228b22",
+			prefix_color = "#71cc2e",
 			suffix = false,
 			exempt = false,
 			minimum_restart_step = 25,
 
 			permissions = {
 				"/ng",
-				"/sc",
-				"/sm",
 				"/kick",
 				"/mute",
 				"/unmute",
-				"/ban",
-				"/unban"
+				"/ban"
+			}
+		},
+		prem = {
+			priority = 6,
+			inheritance = {
+				"legend"
+			},
+
+			prefix = "[$PREM$]",
+			prefix_color = "#0f93ff",
+			suffix = false,
+			exempt = false,
+			minimum_restart_step = 25,
+
+			permissions = {
+				"/ng",
+				"/bonus",
+				"/bc",
+				"/prefix",
+				"/removeprefix"
 			}
 		},
 		legend = {
-			priority = 6,
+			priority = 7,
 			inheritance = {
 				"default"
 			},
 
-			prefix = "[Л]",
+			prefix = "[L]",
 			prefix_color = "#42aaff",
 			suffix = false,
 			exempt = false,
 			minimum_restart_step = 50,
 
 			permissions = {
-				"/rtr",
 				"/sc",
 				"/sm",
-				"/ng",
-				"/bc"
+				"/prefix",
+				"/removeprefix"
 			}
 		},
 		default = {
-			priority = 7,
+			priority = 8,
 			inheritance = {
 			},
 
 			prefix = "[И]",
-			prefix_color = "#808080",
+			prefix_color = "#86ceeb",
 			suffix = false,
 			exempt = false,
 			minimum_restart_step = 50,
@@ -158,28 +162,23 @@ t = {
 			permissions = {
 				"/h",
 				"/m",
+				"/players",
 				"/slist",
 				"/setcolor",
-				"/pass",
 				"/help",
-				"/select",
+				"/rtr",
 				"/vote",
 				"/name",
 				"/setcapital",
 				"/civ",
-				"/disband",
-				"/msgtoggle",
-				"/ignore",
 				"/level",
 				"/legend",
-				"/discord",
-				"/license"
+				"/discord"
 			}
 		}
 	},
 
-	operators = { -- UUID игроков с правами оператора
-		"UUID"
+	operators = {
 	}
 }
 

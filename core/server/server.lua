@@ -32,12 +32,80 @@ local clients_ready = {}
 
 local preferred_civs = {} -- UUID: civilization
 
+local random_motd = false
+
+local base_name = "[WG] 2x2x: Теперь /civ 2 раза за игру"
+
+local motd_messages = {
+	"[WG] 2x2x - Классический варгейм",
+	"[WG] 2x2x: Hello World!",
+	"[WG] 2x2x: Верните мой 2021",
+	"[WG] 2x2x: Всех забаню!",
+	"[WG] 2x2x: RivalRegions это круто",
+	"[WG] 2x2x: 2B2T",
+	"[WG] 2x2x: Truzme_",
+	"[WG] 2x2x: Что?",
+	"[WG] 2x2x: 3 правила (не актуально)",
+	"[WG] 2x2x: Невероятно",
+	"[WG] 2x2x: Верден, спасибо за /civ",
+	"[WG] 2x2x: База кормит",
+	"[WG] 2x2x: Minecraft топ!",
+	"[WG] 2x2x: 2x2x в Майне?",
+	"[WG] 2x2x: Не опять, а снова",
+	"[WG] 2x2x: Hausemaster",
+	"[WG] 2x2x: Чёто не нравится? Валите",
+	"[WG] 2x2x: Жёсткий махыч",
+	"[WG] 2x2x: Huxley",
+	"[WG] 2x2x: Заходите пока есть места!",
+	"[WG] 2x2x: Шалтай болтай всю павапепе вывез",
+	"[WG] 2x2x: Чтоб малина медом не казалась",
+	"[WG] 2x2x: катка хрень, ливаем",
+	"[WG] 2x2x: Привет пупсики я с радостью вас",
+	"[WG] 2x2x: Играйте на этом сервере он топ",
+	"[WG] 2x2x: С ДР, Джок",
+	"[WG] 2x2x: Привет от Горина",
+	"[WG] 2x2x: Аоаоаоа дайте админку *дизлайк*",
+	"[WG] 2x2x: ХАУСА В ГУЛАГ",
+	"[WG] 2x2x: ВЕДЬ СМЕРТЕН ОН!",
+	"[WG] 2x2x: ХАККСЛИ НЕ СУЩЕСТВУЕТ!",
+	"[WG] 2x2x: Технические работы длиной в месяц",
+	"[WG] 2x2x: Больше не анархия",
+	"[WG] 2x2x: Золото! Больше золота!",
+	"[WG] 2x2x: AAAAAAAAAAAAAAAAAAAAAA",
+	"[WG] 2x2x: Верден, спасибо за /setprefix",
+	"[WG] 2x2x: Верден, спасибо за /removeprefix",
+	"[WG] 2x2x: Мирного решения не будет",
+	"[WG] 2x2x: Подготовить расстрельную команду",
+	"[WG] 2x2x: АНАРХИЯ!? Смешно.",
+	"[WG] 2x2x: Нативная реклама Expansion",
+	"[WG] 2x2x: Venom",
+	"[WG] 2x2x: T2x2",
+	"[WG] 2x2x: You shall not pass",
+	"[WG] 2x2x: Шампунь Жумайсынба",
+	"[WG] 2x2x: Путёвка в Челябинск",
+	"[WG] 2x2x: motd",
+	"[WG] 2x2x: dtom",
+	"[WG] 2x2x: На западном фронте без перемен",
+	"[WG] 2x2x: Тигр тигр",
+	"[WG] 2x2x: Пуки",
+	"[WG] 2x2x: че это",
+	"[WG] 2x2x: Скибиди роналду",
+	"[WG] 2x2x: 42x2x братуха",
+	"[WG] 2x2x: Перерыв на пососать"
+}
+
 local function get_server_info()
 	local t = deepcopy(server_settings.server_info)
 
 	t.data.players = 0
 
-	t.data.name = "["..game_data.step.." ход] "..t.data.base_name
+	if random_motd then
+		local value = math.random(#motd_messages)
+
+		t.data.name = "[" .. game_data.step .. " Ход] " .. motd_messages[value]
+	else
+		t.data.name = "[" .. game_data.step .. " Ход]" .. base_name
+	end
 
 	for k, v in pairs(clients_data) do
 		if clients_data[k].state and clients_data[k].state == "in_game" then
@@ -207,15 +275,9 @@ local function send_game_data(client, draw)
 
 	local json_data = to_json(origin_game_data)
 
-	print("Json size:", #json_data)
-
 	json_data = lualzw.compress(to_json(origin_game_data))
 
-	print("Compress json size:", #json_data)
-
 	json_data = base64.encode(json_data)
-
-	print("Compress base64 json:", #json_data)
 
 	local st = splitByChunk(json_data, part_size)
 	local n = #st
@@ -223,7 +285,6 @@ local function send_game_data(client, draw)
 	-- For debug
 	-- local md5 = require "scripts.utils.md5"
 	-- print("Send game data hash is: ", md5.sumhexa(json_data))
-	print("Parts count: ", n, part_size, #json_data)
 
 	local t = {
 		type = "game_data_info",
@@ -352,15 +413,15 @@ local function register_player(client, client_data, ip)
 
 	local verification_result, info = plugin.verify_registration(client, client_data)
 	if not free_land then
-		kick(client, "No free places")
+		kick(client, "Нет свободных мест!")
 	elseif not check_name then
-		kick(client, "The name is incorrect or a player with that name is already in the game")
+		kick(client, "Ваш ник некорректный или такой игрок уже играет на сервере!")
 	elseif not check_uuid then
-		kick(client, "The UUID is incorrect or a player with that UUID is already in the game")
+		kick(client, "Ваш UUID неккоректный или такой игрок уже играет на сервере!")
 	elseif not check_version then
-		kick(client, "Your game version is too old or new. Server version: "..server_settings.SERVER_VERSION)
+		kick(client, "Ваша версия игры старая или новая. Версия сервера: "..server_settings.SERVER_VERSION)
 	elseif not verification_result then
-		kick(client, "You do not have a license or you are banned from this server\n"..(info or ""))
+		kick(client, "Вы не прошли верификацию!\n"..(info or ""))
 	else
 		clients_data[client].civilization = free_land
 		if game_data.custom_map then
@@ -399,10 +460,18 @@ local function next()
 		if HOST_IS_PLAYER then
 			save_system.save(game_data)
 		end
+
+		local start_time = socket.gettime()
+
 		plugin.before_next()
 		ai.handle()
 		core.next()
 		ai.late_handle()
+
+		local end_time = socket.gettime()
+
+		print("Step time: " .. (end_time - start_time) .. " sec")
+
 		for k, v in pairs(clients_data) do
 			if v.state and (v.state == "in_game" or v.state == "observer") then
 				local t = {

@@ -21,9 +21,13 @@ local function name(client, args)
 		return false
 	end
 	
-	local i, j = string.find(new_name, '|')
+	local i, j = string.find(new_name, "|")
 
-	if i and j then
+	local v, d = string.find(new_name, ">")
+
+	local r, w = string.find(new_name, "<")
+
+	if i and j or v and d or r and w then
 		api.call_function("chat_message", "Вы используете запрещённые символы в названии страны!", "error", true, client)
 		return false
 	end

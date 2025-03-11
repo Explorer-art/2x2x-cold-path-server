@@ -119,18 +119,27 @@ function remove_prefix(client, args)
             api.call_function("chat_message", "У вас не установлен префикс!", "error", true, client)
         end
     elseif args[2] and groups[client_data.group].priority < 3 then
-        local cl = api.call_function("get_client_by_name", args[2])
-        local cl_data = api.get_data("clients_data")[cl]
-        local cl_name = cl_data.name
+        local cl_name = args[2]
 
-        if db.players_data[cl_name].custom_prefix then
-            cl_data.custom_prefix = false
-            db.players_data[cl_name].custom_prefix = false
-            db:save()
+        if db.players_data[cl_name] then
+            local cl = api.call_function("get_client_by_name", cl_name)
 
-            api.call_function("chat_message", "Префикс игрока "..args[2].." сброшен!</color>", "system", true, client)
+            if cl then
+                local cl_data = api.get_data("clients_data")[cl]
+
+                cl_data.custom_prefix = false
+            end
+
+            if db.players_data[cl_name].custom_prefix then
+                db.players_data[cl_name].custom_prefix = false
+                db:save()
+
+                api.call_function("chat_message", "Префикс игрока "..args[2].." сброшен!</color>", "system", true, client)
+            else
+                api.call_function("chat_message", "У игрока "..args[2].." не установлен префикс!", "error", true, client)
+            end
         else
-            api.call_function("chat_message", "У игрока "..args[2].." не установлен префикс!", "error", true, client)
+            api.call_function("chat_message", "Неизвестный ник!", "error", client, true)
         end
     else
         api.call_function("chat_message", "У вас недостаточно прав на сброс префиксов других игроков!", "error", true, client)

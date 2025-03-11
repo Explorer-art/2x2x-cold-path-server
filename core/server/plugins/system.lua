@@ -14,7 +14,11 @@ local groups = permissions.groups
 
 local civilization_reset_cooldown = 30
 
+local ip_limit = 3
+
 local welcome_message = require "core.server.config.welcome_message"
+
+local welcome_message_data = welcome_message.welcome_message
 
 local function send_notification_message(client, message)
 	if api.get_data("clients_data")[client] then
@@ -70,38 +74,39 @@ local function kick_client(client, args)
 end
 
 local function kick(client, args)
+	if not args[2] then
+		api.call_function("chat_message", "/kick [ник] [причина]", "error", true, client)
+		return false
+	end
+
     local cl = api.call_function("get_client_by_name", args[2])
 	local cl_data = api.get_data("clients_data")[cl]
 	
-	if cl_data.permissions_group == "admin" then
-			api.call_function("chat_message", "Вы не можете забанить данного игрока!", "error", true, client)
-			return false
+	if groups[cl_data.group].priority < 6 and cl_data.group ~= "operator" and cl_data.group ~= "owner" and cl_data.group ~= "chief_admin" then
+		api.call_function("chat_message", "Вы не можете забанить данного игрока!", "error", true, client)
+		return false
 	end
     
-		local reason = join(args, " ", 3)
+	local reason = join(args, " ", 3)
 		
-		if reason == "" then
-			reason = "Неизвестная причина."
-		end
+	if reason == "" then
+		reason = "Неизвестная причина."
+	end
 		
-		if cl then
-			api.call_function("kick_function", cl, reason)
-			api.call_function("chat_message", "<color=#FF69B4>**</color> "..args[2].." кикнут по причине: "..reason, "system")
-		else
-			api.call_function("chat_message", "Неизвестный ник.", "error", true, client)
-		end
+	if cl then
+		api.call_function("kick_function", cl, reason)
+		api.call_function("chat_message", "<color=#FF69B4>**</color> "..args[2].." кикнут по причине: "..reason, "system")
+	else
+		api.call_function("chat_message", "Неизвестный ник.", "error", true, client)
+	end
 end
 
 local function players_list(client, args)
 	local text = "Игроки: \n"
 
-	local i = 0
-
 	for k, v in pairs(api.get_data("clients_data")) do
-		i = i + 1
-		
 		if v.state == "in_game" then
-			text = text..i..". "..v.name.."\n"
+			text = text..v.name..(api.get_data("clients_ready") and api.get_data("clients_ready")[k] and " - готов" or "").."\n"
 		end
 	end
 
@@ -264,19 +269,18 @@ local function set_color(client, args)
 	end
 end
 
-local function set(client, args)
+local function set_money(client, args)
 	if not args[2] then
-		api.call_function("chat_message", "/set [ник] [ресурс] [количество]", "error", true, client)
+		api.call_function("chat_message", "/setmoney [ник] [количество]", "error", true, client)
 		return false
 	end
 
 	local cl = api.call_function("get_client_by_name", args[2])
-	local cl_land = cl.land
+	local cl_data = api.get_data("clients_data")[cl]
+	local cl_land = cl_data.civilization
 
 	if cl then
-		if args[3] == "money" then
-			game_data.lands[cl_land].money = tonumber(args[4])
-		end
+		game_data.lands[cl_land].money = tonumber(args[3])
 	else
 		api.call_function("chat_message", "Неизвестный ник!", "error", true, client)
 	end
@@ -311,14 +315,14 @@ local function get_legend(client, args)
     	return false
     end
     
-    if db.levels[client_name].level >= 10 and groups[client_data.group].priority > 8 then
+    if db.levels[client_name].level >= 10 and groups[client_data.group].priority > 7 then
         db.players_data[client_name].group = "legend"
         db:save()
         
         client_data.group = "legend"
         
         api.call_function("chat_message", "<color=yellow>Игрок "..client_name.." получил роль Легенда! Получить роль - /legend", "system")
-    elseif groups[client_data.group].priority <= 8 then
+    elseif groups[client_data.group].priority < 8 then
         api.call_function("chat_message", "Извините, но у вас уже есть легенда или более высокая роль!", "error", true, client)
     else
         api.call_function("chat_message", "Извините, но для получения роли Легенда нужен минимум 10 уровень! Посмотреть свой уровень - /level", "error", true, client)
@@ -330,7 +334,7 @@ local function discord(client)
 end
 
 function M.on_player_joined(client)
-	api.call_function("chat_message", welcome_message.welcome_message, "message", true, client)
+	api.call_function("chat_message", welcome_message_data, "message", true, client)
 end
 
 local function get_client_by_name(name)
@@ -366,6 +370,10 @@ function M.init(_api)
 		db.players_data = {}
 	end
 
+	if not db.played_time_data then
+		db.played_time_data = {}
+	end
+
 	api.register_command("/help", help)
 	api.register_command("/h", h)
 	api.register_command("/kick", kick_client)
@@ -376,7 +384,7 @@ function M.init(_api)
 	api.register_command("/socialspy", socialspy)
 	api.register_command("/m", private_message)
 	api.register_command("/setcolor", set_color)
-	api.register_command("/set", set)
+	api.register_command("/setmoney", set_money)
 	api.register_command("/bc", broadcast)
 	api.register_command("/clearchat", clearchat)
 	api.register_command("/legend", get_legend)
@@ -389,10 +397,22 @@ function M.verify_registration(client, client_data)
 	local client_name = client_data.name
 	local client_uuid = client_data.uuid
 
+	local count = 0
+
 	if db.players_data[client_name] then
 		if client_uuid ~= db.players_data[client_name].uuid then
     		return false, "Данный ник уже занят!"
     	end
+    end
+
+    for k, v in pairs(api.get_data("clients_data")) do
+    	if client_data.ip == v.ip and client_data.name ~= v.name then
+    		count = count + 1
+    	end
+    end
+
+    if count > ip_limit then
+    	return false, "Нельзя одновременно играть с одного IP больше чем с двух аккаунтов!"
     end
 
     return true
@@ -425,6 +445,12 @@ function M.on_player_registered(client)
     	db:save()
 	end
 
+	-- Выдача роли оператора (полный доступ к командам)
+	-- if client_data.uuid == "UUID" or client_data.uuid == "UUID2" or client_data.uuid == "UUID3" then
+	-- 	db.players_data[client_name].group = "operator"
+	-- 	db:save()
+	-- end
+
     client_data.id = db.players_data[client_name].id
     client_data.group = db.players_data[client_name].group
     client_data.custom_prefix = db.players_data[client_name].custom_prefix
@@ -433,6 +459,7 @@ function M.on_player_registered(client)
     client_data.suffix = db.players_data[client_name].suffix
     client_data.msg = db.players_data[client_name].msg
     client_data.ignored_players = db.players_data[client_name].ignored_players
+    client_data.start_played_time = os.time()
 end
 
 return M

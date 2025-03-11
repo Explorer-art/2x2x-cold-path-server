@@ -245,7 +245,6 @@ end
 function M.parse_command(cmd, client)
 	cmd = lume.split(cmd)
 	local command_found = false
-
 	for k, v in pairs(commands_list) do
 		if k == cmd[1] then
 			if not client or plugins_function.check_command_permission(client, cmd[1]) then
@@ -258,7 +257,6 @@ function M.parse_command(cmd, client)
 			command_found = true
 		end
 	end
-	
 	if not command_found then
 		plugins_function.chat_message("Неизвестная команда!", "error", true, client)
 	end
