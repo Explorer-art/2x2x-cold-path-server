@@ -367,7 +367,7 @@ local function reset_user(client, args)
     local client_data = api.get_data("clients_data")[client]
 
     if not args[2] then
-        api.call_function("chat_message", "/reset_user [ник]", "error", client, true)
+        api.call_function("chat_message", "/reset_user [ник]", "error", true, client)
         return false
     end
 
@@ -376,16 +376,16 @@ local function reset_user(client, args)
     if db.players_data[cl_name] then
         -- Проверка на приоритет роли
         if groups[db.players_data[client_data.name].group].priority > groups[db.players_data[cl_name].group].priority then
-            api.call_function("chat_message", "Вы не можете сбросить аккаунт игрока с ролью выше чем у вас!", "error", client, true)
+            api.call_function("chat_message", "Вы не можете сбросить аккаунт игрока с ролью выше чем у вас!", "error", true, client)
             return false
         end
 
         db.players_data[cl_name] = nil
         db:save()
 
-        api.call_function("chat_message", "Аккаунт " .. cl_name .. " сброшен!", "system", client, true)
+        api.call_function("chat_message", "Аккаунт " .. cl_name .. " сброшен!", "system", true, client)
     else
-        api.call_function("chat_message", "Неизвестный ник!", "error", client, true)
+        api.call_function("chat_message", "Неизвестный ник!", "error", true, client)
     end
 end
 
