@@ -305,7 +305,7 @@ local function get_info(client, args)
     local text_1 = inspect(db.players_data[args[2]] or {})
     local text_2 = inspect(db.played_time_data[args[2]] or {})
         
-    api.call_function("send_notification_message", client, "Информация о игроке " .. args[2] .. ": \n" .. text_1 .. "\n" .. text_2)
+    api.call_function("send_notification_message", client, "Информация об игроке " .. args[2] .. ": \n" .. text_1 .. "\n" .. text_2)
 end
 
 local function role(client, args)
@@ -332,6 +332,13 @@ local function role(client, args)
     if db.players_data[cl_name] then
         db.players_data[cl_name].group = new_role
         db:save()
+
+        local cl = api.call_function("get_client_by_name", cl_name)
+
+        if cl then
+            local cl_data = api.get_data("clients_data")[cl]
+            cl_data.group = new_role
+        end
 
         api.call_function("chat_message", "Игрок " .. cl_name .. " получил новую роль " .. new_role, "system", true, client)
     else
