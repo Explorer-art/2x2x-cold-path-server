@@ -5,6 +5,8 @@ local t = {
 			--Server name
 			name = "[WG] 2x2x — Классический варгейм",
 			base_name = "[WG] 2x2x — Классический варгейм",
+			-- Icon URL
+			icon_url = "https://i.imgur.com/9Kanh66.png",
 			-- Server prefix in chat
 			server_prefix = "<color=grey>[</color><color=#FF69B4>2X2X</color><color=grey>]</color> <color=grey>> </color>",
 			-- Error prefix in chat
@@ -23,7 +25,7 @@ local t = {
 	Example: game version is 5.3, server version is 5, because
 	client-server compatibility is determined by this number.
 	Do not touch in order to allow players to join. Update the server.--]]
-	SERVER_VERSION = 18,
+	SERVER_VERSION = 20,
 	-- Maximum amount of time per turn. Seconds
 	time_to_turn = 120,
 	verify_uuid = true,
