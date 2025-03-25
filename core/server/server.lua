@@ -36,6 +36,9 @@ local random_motd = false
 
 local base_name = "[WG] 2x2x: Теперь /civ 2 раза за игру"
 
+local b_list = {}
+local preffered_civs_list = {}
+
 local motd_messages = {
 	"[WG] 2x2x - Классический варгейм",
 	"[WG] 2x2x: Hello World!",
@@ -93,6 +96,13 @@ local motd_messages = {
 	"[WG] 2x2x: 42x2x братуха",
 	"[WG] 2x2x: Перерыв на пососать"
 }
+
+local function remove_civ_from_preffered(civ)
+	if preffered_civs_list[civ] then
+		preffered_civs_list[civ].timer:remove()
+		preffered_civs_list[civ] = nil
+	end
+end
 
 local function get_server_info()
 	local t = deepcopy(server_settings.server_info)
@@ -829,6 +839,8 @@ function M.start(console)
 	clients_data = {}
 	clients_ready = {}
 	preferred_civs = {}
+	b_list = {}
+	preffered_civs_list = {}
 	if tcp_server then
 		-- for k, v in pairs(clients_data) do
 			-- tcp_server.urgent_send(to_json({type = "server_closed"}),k)
@@ -1249,10 +1261,39 @@ function M.accept_offer(land, offer_id)
 end
 
 function M.change_country(from, to, client)
-	if free_land(to) then
-		preferred_civs[clients_data[client].uuid] = to
-		kick(client, "Civilization changed!")
+	if not free_land(to) then
+		return
 	end
+
+	if preffered_civs_list[to] then
+		return
+	end
+
+	local cl_data = clients_data[client]
+
+	if b_list[cl_data.uuid] then
+		if b_list[cl_data.uuid] >= 2 then
+			M.chat("<color=red>Выбрать цивилизацию можно только 2 раза за игру!</color>", true, client)
+			return
+		end
+
+		if b_list[cl_data.uuid] == 1 and game_data.step < 25 then
+			M.chat("<color=red>Пересесть второй раз можно только начиная с 25 хода!</color>", true, client)
+			return
+		end
+	end
+
+	if cl_data.group == "admin" or cl_data.group == "senior_admin" or cl_data.group == "chief_admin" or cl_data.group == "owner" or cl_data.group == "operator" then
+	    M.chat("<color=white>У вас безлимитная пересадка ;)</color>", true, client)
+	else
+		b_list[cl_data.uuid] = (b_list[cl_data.uuid] or 0) + 1
+	end
+
+	preferred_civs[clients_data[client].uuid] = to
+	kick(client, "Вы пересели на другую цивилизацию. Пожалуйста, перезайдите на сервер, иначе через 60 секунд её смогут занять другие игроки.")
+	preffered_civs_list[to] = {
+		timer = timer_module.every(60, function() remove_civ_from_preffered(to) end)
+	}
 end
 
 function M.change_country_name(land, name, client)
@@ -1262,7 +1303,13 @@ function M.change_country_name(land, name, client)
 		return
 	end
 
-	game_data.lands[clients_data[client].civilization].name = name
+	if game_data.lands[land].name == name then
+		return
+	end
+
+	local old_name = game_data.lands[land].name
+
+	game_data.lands[land].name = name
 
 	t = {
 		type = "country_name_changed",
@@ -1270,12 +1317,18 @@ function M.change_country_name(land, name, client)
 	}
 
 	tcp_server.urgent_send(to_json(t), client)
+
+	M.chat("<color=grey>[</color><color=#FF69B4>2X2X</color><color=grey>]</color> <color=grey>> </color><color=white>Цивилизация </color><color=#FF69B4>"..old_name.."</color><color=white> получает название </color><color=#FF69B4>"..game_data.lands[land].name.."</color>", false)
 end
 
 function M.change_country_color(land, color, client)
 	local client_land = clients_data[client].civilization
 
 	if land ~= client_land then
+		return
+	end
+
+	if game_data.lands[land].color == color then
 		return
 	end
 
