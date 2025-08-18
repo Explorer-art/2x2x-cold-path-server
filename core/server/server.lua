@@ -142,6 +142,23 @@ local function update_players_list()
 	tcp_server.broadcast(to_json(t))
 end
 
+local function check_client(client_data)
+	local last_sync = aft.get_last_sync()
+
+	for client, data in pairs(clients_data) do
+		if (data.name == client_data.name or data.uuid == client_data.uuid) and client ~= nil then
+			local last_ping = last_sync[client] and last_sync[client].last_time or 0
+			if socket.gettime() - last_ping > afk_sec then
+				kick(client, "Duplicate player, kicked to allow real player")
+				return true
+			else
+				return false
+			end
+		end
+	end
+	return true
+end
+
 local function free_land(land)
 	-- print(debug.traceback(), land)
 	-- pprint("Game data land:", game_data.lands[land])
@@ -425,9 +442,17 @@ local function register_player(client, client_data, ip)
 	if not free_land then
 		kick(client, "Нет свободных мест!")
 	elseif not check_name then
-		kick(client, "Ваш ник некорректный или такой игрок уже играет на сервере!")
+		local succes = check_client(client_data)
+
+		if not succes then
+			kick(client, "Ваш ник некорректный или такой игрок уже играет на сервере!")
+		end
 	elseif not check_uuid then
-		kick(client, "Ваш UUID неккоректный или такой игрок уже играет на сервере!")
+		local succes = check_client(client_data)
+
+		if not succes then
+			kick(client, "Ваш UUID неккоректный или такой игрок уже играет на сервере!")
+		end
 	elseif not check_version then
 		kick(client, "Ваша версия игры старая или новая. Версия сервера: "..server_settings.SERVER_VERSION)
 	elseif not verification_result then
