@@ -13,6 +13,7 @@ local last_sync = {
 }
 
 local afk_sec = 300
+local ping_interval = 10
 
 local function check_client(client)
 	if last_sync[client] and socket.gettime() - last_sync[client].last_time > afk_sec and api.get_data("clients_data")[client] and api.get_data("clients_data")[client].uuid ~= "8dd59f6183e29bb48997ee3e497d8c19100c8fc2a7b1af4454a58f49" then
@@ -32,7 +33,7 @@ end
 
 function M.on_player_registered(client)
 	last_sync[client] = {
-		timer_id = timer_module.every(afk_sec / 2, function()
+		timer_id = timer_module.every(ping_interval, function()
 			check_client(client)
 		end),
 		last_time = socket.gettime()

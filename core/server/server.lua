@@ -25,7 +25,10 @@ local host_is_ready = false
 local tcp_server_require = require "defnet.tcp_server"
 local tcp_server = nil
 
+local afk = require "core.server.plugins.afk"
 local plugin = require "core.server.plugins.plugins_manager"
+
+local afk_sec = 15
 
 local clients_data = {}
 local clients_ready = {}
@@ -142,23 +145,6 @@ local function update_players_list()
 	tcp_server.broadcast(to_json(t))
 end
 
-local function check_client(client_data)
-	local last_sync = aft.get_last_sync()
-
-	for client, data in pairs(clients_data) do
-		if (data.name == client_data.name or data.uuid == client_data.uuid) and client ~= nil then
-			local last_ping = last_sync[client] and last_sync[client].last_time or 0
-			if socket.gettime() - last_ping > afk_sec then
-				kick(client, "Duplicate player, kicked to allow real player")
-				return true
-			else
-				return false
-			end
-		end
-	end
-	return true
-end
-
 local function free_land(land)
 	-- print(debug.traceback(), land)
 	-- pprint("Game data land:", game_data.lands[land])
@@ -191,6 +177,37 @@ local function find_free_land(uuid)
 	else
 		return nil
 	end
+end
+
+local function kick(client, kick_reason)
+	if kick_reason then
+		local kick_info = {
+			type = "kick",
+			data = {
+				reason = kick_reason
+			}
+		}
+		tcp_server.urgent_send(to_json(kick_info), client)
+	end
+	log("Kick client: ", client, " by reason: ", kick_reason)
+	tcp_server.remove_client(client)
+end
+
+local function check_client(current_client, client_data)
+	local last_sync = afk.get_last_sync()
+
+	for client, data in pairs(clients_data) do
+		if client ~= current_client and (data.name == client_data.name or data.uuid == client_data.uuid) then
+			local last_ping = last_sync[client] and last_sync[client].last_time or 0
+			if socket.gettime() - last_ping > afk_sec then
+				kick(client, "Duplicate player, kicked to allow real player")
+				return true
+			else
+				return false
+			end
+		end
+	end
+	return true
 end
 
 local function check_name(name)
@@ -233,20 +250,6 @@ local function check_version(version)
 		return true
 	end
 	return false
-end
-
-local function kick(client, kick_reason)
-	if kick_reason then
-		local kick_info = {
-			type = "kick",
-			data = {
-				reason = kick_reason
-			}
-		}
-		tcp_server.urgent_send(to_json(kick_info), client)
-	end
-	log("Kick client: ", client, " by reason: ", kick_reason)
-	tcp_server.remove_client(client)
 end
 
 --local stat = require "scripts.sarah.statistics"
@@ -442,16 +445,16 @@ local function register_player(client, client_data, ip)
 	if not free_land then
 		kick(client, "Нет свободных мест!")
 	elseif not check_name then
-		local succes = check_client(client_data)
+		local succes = check_client(client, client_data)
 
 		if not succes then
-			kick(client, "Ваш ник некорректный или такой игрок уже играет на сервере!")
+			kick(client, "Ваш ник некорректный или такой игрок уже играет на сервере! Попробуйте зайти ещё раз через "..afk_sec.." секунд")
 		end
 	elseif not check_uuid then
-		local succes = check_client(client_data)
+		local succes = check_client(client, client_data)
 
 		if not succes then
-			kick(client, "Ваш UUID неккоректный или такой игрок уже играет на сервере!")
+			kick(client, "Ваш UUID неккоректный или такой игрок уже играет на сервере! Попробуйте зайти ещё раз через "..afk_sec.." секунд")
 		end
 	elseif not check_version then
 		kick(client, "Ваша версия игры старая или новая. Версия сервера: "..server_settings.SERVER_VERSION)
