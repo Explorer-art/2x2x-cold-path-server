@@ -40,7 +40,7 @@ local function name(client, args)
 	local c_name = game_data.lands[client_data.civilization].name
 	
 	set_civ_name(client_data.civilization, string.sub(new_name, 1, -2))
-	api.call_function("chat_message", "Цивилизация </color><color=#FF69B4>"..c_name.."</color><color=white> получает название </color><color=#FF69B4>"..new_name.."</color>", "system")
+	api.call_function("chat_message", "Цивилизация </color><color=#8cd4ff>"..c_name.."</color><color=white> получает название </color><color=#8cd4ff>"..new_name.."</color>", "system")
 end
 
 local function set_name(client, args)
@@ -70,7 +70,7 @@ local function set_name(client, args)
 	local c_name = game_data.lands[cl_data.civilization].name
 	
 	set_civ_name(cl_data.civilization, string.sub(new_name, 1, -2))
-	api.call_function("chat_message", "Администратор </color><color=#FF69B4>"..client_data.name.." </color><color=white>изменил название цвилизации </color><color=#FF69B4>"..c_name.." </color><color=white>на</color><color=#FF69B4> "..new_name.."</color>", "system")
+	api.call_function("chat_message", "Администратор </color><color=#8cd4ff>"..client_data.name.." </color><color=white>изменил название цвилизации </color><color=#8cd4ff>"..c_name.." </color><color=white>на</color><color=#8cd4ff> "..new_name.."</color>", "system")
 end
 
 function M.init(_api)

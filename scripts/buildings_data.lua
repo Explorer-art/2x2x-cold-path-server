@@ -8,37 +8,37 @@ local t = {
 			lvl = {
 				[1] = {
 					input = {
-						["extract:gold"] = 10,
-					},
-					output = {
-						["resource:gold"] = 10,
-					},
-					cost = 2500,
-				},
-				[2] = {
-					input = {
 						["extract:gold"] = 20,
 					},
 					output = {
 						["resource:gold"] = 20,
 					},
-					cost = 5000,
+					cost = 2500,
 				},
-				[3] = {
-					input = {
-						["extract:gold"] = 30,
-					},
-					output = {
-						["resource:gold"] = 30,
-					},
-					cost = 10000,
-				},
-				[4] = {
+				[2] = {
 					input = {
 						["extract:gold"] = 40,
 					},
 					output = {
 						["resource:gold"] = 40,
+					},
+					cost = 5000,
+				},
+				[3] = {
+					input = {
+						["extract:gold"] = 60,
+					},
+					output = {
+						["resource:gold"] = 60,
+					},
+					cost = 10000,
+				},
+				[4] = {
+					input = {
+						["extract:gold"] = 80,
+					},
+					output = {
+						["resource:gold"] = 80,
 					},
 					cost = 20000,
 				},
@@ -58,28 +58,28 @@ local t = {
 			lvl = {
 				[1] = {
 					input = {
-						["resource:gold"] = 30,
-					},
-					output = {
-						["gold"] = 3000,
-					},
-					cost = 10000,
-				},
-				[2] = {
-					input = {
 						["resource:gold"] = 60,
 					},
 					output = {
 						["gold"] = 6000,
 					},
-					cost = 20000,
+					cost = 10000,
 				},
-				[3] = {
+				[2] = {
 					input = {
 						["resource:gold"] = 100,
 					},
 					output = {
 						["gold"] = 10000,
+					},
+					cost = 20000,
+				},
+				[3] = {
+					input = {
+						["resource:gold"] = 150,
+					},
+					output = {
+						["gold"] = 15000,
 					},
 					cost = 40000,
 				},
@@ -90,19 +90,19 @@ local t = {
 			lvl = {
 				[1] = {
 					output = {
-						["gold"] = 700,
+						["gold"] = 1000,
 					},
 					cost = 5000,
 				},
 				[2] = {
 					output = {
-						["gold"] = 2000,
+						["gold"] = 3000,
 					},
 					cost = 15000,
 				},
 				[3] = {
 					output = {
-						["gold"] = 3000,
+						["gold"] = 5000,
 					},
 					cost = 25000,
 				},
@@ -132,7 +132,7 @@ local t = {
 						["gold"] = 10000
 					},
 					output = {
-						["science"] = 10,
+						["science"] = 5,
 					},
 					cost = 100000,
 				},
@@ -141,18 +141,9 @@ local t = {
 						["gold"] = 15000
 					},
 					output = {
-						["science"] = 15,
+						["science"] = 10,
 					},
 					cost = 150000,
-				},
-				[3] = {
-					input = {
-						["gold"] = 20000
-					},
-					output = {
-						["science"] = 20,
-					},
-					cost = 200000,
 				}
 			}
 		},
@@ -208,19 +199,54 @@ local t = {
 			}
 		},
 		{ 
+			id = "air_defense",
+			lvl = {
+				[1] = {
+					input = {
+						["gold"] = 1000
+					},
+					cost = 15000,
+				},
+				[2] = {
+					input = {
+						["gold"] = 1000
+					},
+					cost = 35000,
+				},
+				[3] = {
+					input = {
+						["gold"] = 1000
+					},
+					cost = 55000,
+				},
+				[4] = {
+					input = {
+						["gold"] = 1000
+					},
+					cost = 75000,
+				},
+				[5] = {
+					input = {
+						["gold"] = 1000
+					},
+					cost = 95000,
+				},
+			}
+		},
+		{
+			id = "missile_defense",
+			lvl = {
+				[1] = {
+					cost = 100000
+				},
+			}
+		},
+		{ 
 			id = "bridgehead",
 			lvl = {
 				[1] = {
 					cost = 5000,
 					damage_bonus = 1.5
-				},
-				[2] = {
-					cost = 10000,
-					damage_bonus = 2
-				},
-				[3] = {
-					cost = 15000,
-					damage_bonus = 2.5
 				}
 			}
 		},
@@ -276,57 +302,22 @@ local t = {
 				[2] = {
 					air_attack_damage = 6000,
 					break_building_chance = 0.05,
-					cost = 20000,
+					cost = 15000,
 				},
 				[3] = {
 					air_attack_damage = 8000,
 					break_building_chance = 0.1,
-					cost = 30000,
+					cost = 25000,
 				},
 				[4] = {
 					air_attack_damage = 10000,
 					break_building_chance = 0.2,
-					cost = 40000,
+					cost = 35000,
 				},
 				[5] = {
 					air_attack_damage = 10000,
 					break_building_chance = 0.3,
-					cost = 50000,
-				},
-			}
-		},
-		{ 
-			id = "air_defense",
-			lvl = {
-				[1] = {
-					input = {
-						["gold"] = 1000
-					},
-					cost = 15000,
-				},
-				[2] = {
-					input = {
-						["gold"] = 1000
-					},
-					cost = 35000,
-				},
-				[3] = {
-					input = {
-						["gold"] = 1000
-					},
-					cost = 55000,
-				},
-				[4] = {
-					input = {
-						["gold"] = 1000
-					},
-					cost = 75000,
-				},
-				[5] = {
-					input = {
-						["gold"] = 1000
-					},
-					cost = 95000,
+					cost = 45000,
 				},
 			}
 		},

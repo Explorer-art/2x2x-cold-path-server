@@ -27,56 +27,89 @@ local function check_permission(list, uuid1)
 end
 
 local scenarios = {
-	eana = {
-		world_1000 = require "scripts.scenarios.eana.world_1000",
-		world_1492 = require "scripts.scenarios.eana.world_1492",
-		Birth_USA = require "scripts.scenarios.eana.Birth_USA",
-		world_1812 = require "scripts.scenarios.eana.world_1812",
-		world_1871 = require "scripts.scenarios.eana.world_1871",
-		world_1914 = require "scripts.scenarios.eana.world_1914",
-		world_1936 = require "scripts.scenarios.eana.world_1936",
-		world_1941 = require "scripts.scenarios.eana.world_1941",
-		world_1941_1 = require "scripts.scenarios.eana.world_1941_1",
-		world_1941_2 = require "scripts.scenarios.eana.world_1941_2",
-		world_1900 = require "scripts.scenarios.eana.world_1900",
-		world_1920 = require "scripts.scenarios.eana.world_1920",
-		world_2022 = require "scripts.scenarios.eana.world_2022"
+	europe = {
+		millenium = require "scripts.scenarios.europe.millenium",
+		wwi = require "scripts.scenarios.europe.wwi",
+		great_northern_war = require "scripts.scenarios.europe.great_northern_war",
+		crimean_war = require "scripts.scenarios.europe.crimean_war",
+		modern_world = require "scripts.scenarios.europe.modern_world",
 	},
-	euro3 = {
-	    euro_1700 = require "scripts.scenarios.euro3.euro_1700",
-	    euro_1815 = require "scripts.scenarios.euro3.euro_1815",
-	    euro_1912 = require "scripts.scenarios.euro3.euro_1912",
-		euro_2014 = require "scripts.scenarios.euro3.euro_2014",
-		euro_2024 = require "scripts.scenarios.euro3.euro_2024"
-	},
-	Europe_D = {
-	    euro_2020 = require "scripts.scenarios.Europe_D.euro_2020",
-	    ww1 = require "scripts.scenarios.Europe_D.ww1",
-		ww2 = require "scripts.scenarios.Europe_D.ww2",
-		Kaiser_Reich = require "scripts.scenarios.Europe_D.Kaiser_Reich"
-	},
-	Europe_T = {
-		euro_1444 = require "scripts.scenarios.Europe_T.euro_1444",
-		euro_1700 = require "scripts.scenarios.Europe_T.euro_1700",
-		euro_1812 = require "scripts.scenarios.Europe_T.euro_1812",
-		euro_1914 = require "scripts.scenarios.Europe_T.euro_1914",
-		euro_1936_1 = require "scripts.scenarios.Europe_T.euro_1936_1",
-		euro_1936_2 = require "scripts.scenarios.Europe_T.euro_1936_2",
-		euro_1941_1 = require "scripts.scenarios.Europe_T.euro_1941_1",
-		euro_1941_2 = require "scripts.scenarios.Europe_T.euro_1941_2",
-		euro_1941_3 = require "scripts.scenarios.Europe_T.euro_1941_3",
-		euro_2022 = require "scripts.scenarios.Europe_T.euro_2022"
-	},
-	Eurasia_YM = {
-		year_300 = require "scripts.scenarios.Eurasia_YM.year_300",
-		year_400 = require "scripts.scenarios.Eurasia_YM.year_400",
-		year_620 = require "scripts.scenarios.Eurasia_YM.year_620",
-		year_1610 = require "scripts.scenarios.Eurasia_YM.year_1610",
-		year_1722 = require "scripts.scenarios.Eurasia_YM.year_1722",
-		year_1870 = require "scripts.scenarios.Eurasia_YM.year_1870",
-		year_1914 = require "scripts.scenarios.Eurasia_YM.year_1914",
-		year_2023 = require "scripts.scenarios.Eurasia_YM.year_2023"
-	}
+	-- eana = {
+	-- 	world_1000 = require "scripts.scenarios.eana.world_1000",
+	-- 	world_1492 = require "scripts.scenarios.eana.world_1492",
+	-- 	-- Birth_USA = require "scripts.scenarios.eana.Birth_USA",
+	-- 	world_1812 = require "scripts.scenarios.eana.world_1812",
+	-- 	world_1871 = require "scripts.scenarios.eana.world_1871",
+	-- 	world_1914 = require "scripts.scenarios.eana.world_1914",
+	-- 	world_1936 = require "scripts.scenarios.eana.world_1936",
+	-- 	world_1941 = require "scripts.scenarios.eana.world_1941",
+	-- 	world_1941_1 = require "scripts.scenarios.eana.world_1941_1",
+	-- 	world_1941_2 = require "scripts.scenarios.eana.world_1941_2",
+	-- 	world_1900 = require "scripts.scenarios.eana.world_1900",
+	-- 	-- world_1915 = require "scripts.scenarios.eana.world_1915",
+	-- 	world_1920 = require "scripts.scenarios.eana.world_1920",
+	-- 	world_2022 = require "scripts.scenarios.eana.world_2022"
+	-- },
+	-- euro3 = {
+	-- 	euro_1568 = require "scripts.scenarios.euro3.euro_1568",
+	-- 	euro_1700 = require "scripts.scenarios.euro3.euro_1700",
+	--     euro_1812 = require "scripts.scenarios.euro3.euro_1812",
+	--     euro_1815 = require "scripts.scenarios.euro3.euro_1815",
+	--     euro_1912 = require "scripts.scenarios.euro3.euro_1912",
+	--     euro_1914 = require "scripts.scenarios.euro3.euro_1914",
+	--     euro_1917 = require "scripts.scenarios.euro3.euro_1917",
+	--     euro_1918 = require "scripts.scenarios.euro3.euro_1918",
+	--     euro_1936 = require "scripts.scenarios.euro3.euro_1936",
+	--     euro_1943 = require "scripts.scenarios.euro3.euro_1943",
+	--     euro_1975 = require "scripts.scenarios.euro3.euro_1975",
+	-- 	euro_2014 = require "scripts.scenarios.euro3.euro_2014",
+	-- 	euro_2024 = require "scripts.scenarios.euro3.euro_2024"
+	-- },
+	-- Europe_D = {
+	--     euro_2020 = require "scripts.scenarios.Europe_D.euro_2020",
+	--     ww1 = require "scripts.scenarios.Europe_D.ww1",
+	-- 	ww2 = require "scripts.scenarios.Europe_D.ww2",
+	-- 	Kaiser_Reich = require "scripts.scenarios.Europe_D.Kaiser_Reich"
+	-- },
+	-- Europe_T = {
+	-- 	euro_1444 = require "scripts.scenarios.Europe_T.euro_1444",
+	-- 	euro_1700 = require "scripts.scenarios.Europe_T.euro_1700",
+	-- 	euro_1812 = require "scripts.scenarios.Europe_T.euro_1812",
+	-- 	euro_1914 = require "scripts.scenarios.Europe_T.euro_1914",
+	-- 	euro_1936_1 = require "scripts.scenarios.Europe_T.euro_1936_1",
+	-- 	euro_1936_2 = require "scripts.scenarios.Europe_T.euro_1936_2",
+	-- 	euro_1941_1 = require "scripts.scenarios.Europe_T.euro_1941_1",
+	-- 	euro_1941_2 = require "scripts.scenarios.Europe_T.euro_1941_2",
+	-- 	euro_1941_3 = require "scripts.scenarios.Europe_T.euro_1941_3",
+	-- 	euro_2022 = require "scripts.scenarios.Europe_T.euro_2022"
+	-- },
+	-- Eurasia_YM = {
+	-- 	year_300 = require "scripts.scenarios.Eurasia_YM.year_300",
+	-- 	year_400 = require "scripts.scenarios.Eurasia_YM.year_400",
+	-- 	year_620 = require "scripts.scenarios.Eurasia_YM.year_620",
+	-- 	year_1610 = require "scripts.scenarios.Eurasia_YM.year_1610",
+	-- 	year_1722 = require "scripts.scenarios.Eurasia_YM.year_1722",
+	-- 	year_1870 = require "scripts.scenarios.Eurasia_YM.year_1870",
+	-- 	year_1914 = require "scripts.scenarios.Eurasia_YM.year_1914",
+	-- 	year_2023 = require "scripts.scenarios.Eurasia_YM.year_2023"
+	-- },
+	-- Asia_N = {
+	-- 	year_1853 = require "scripts.scenarios.Asia_N.year_1853",
+	-- 	year_1904 = require "scripts.scenarios.Asia_N.year_1904",
+	-- 	year_1935 = require "scripts.scenarios.Asia_N.year_1935",
+	-- 	year_1942 = require "scripts.scenarios.Asia_N.year_1942",
+	-- 	year_1991 = require "scripts.scenarios.Asia_N.year_1991",
+	-- 	year_2014 = require "scripts.scenarios.Asia_N.year_2014",
+	-- 	year_2020 = require "scripts.scenarios.Asia_N.year_2020"
+	-- },
+	-- Atlanta = {
+	-- 	world_1853 = require "scripts.scenarios.Atlanta.world_1853",
+	-- 	world_1910 = require "scripts.scenarios.Atlanta.world_1910",
+	-- 	world_1936 = require "scripts.scenarios.Atlanta.world_1936",
+	-- 	world_1941 = require "scripts.scenarios.Atlanta.world_1941",
+	-- 	world_1954 = require "scripts.scenarios.Atlanta.world_1954",
+	-- 	world_2014 = require "scripts.scenarios.Atlanta.world_2014",
+	-- }
 }
 
 local next_map
@@ -85,7 +118,7 @@ local next_scenario
 local function set_map(client, args)
 	if scenarios[args[2]] then
 		next_map = args[2]
-		api.call_function("chat_message", "<color=white>Администратор </color><color=#FF69B4>"..api.get_data("clients_data")[client].name.."</color> <color=white>установил следующую карту </color><color=#FF69B4>"..args[2].."</color>", "system")
+		api.call_function("chat_message", "<color=white>Администратор </color><color=#8cd4ff>"..api.get_data("clients_data")[client].name.."</color> <color=white>установил следующую карту </color><color=#8cd4ff>"..args[2].."</color>", "system")
 	else
 		api.call_function("chat_message", "Неизвестная карта!", "error", true, client)
 	end
@@ -95,7 +128,7 @@ local function set_scenario(client, args)
 	if scenarios[args[2]] and scenarios[args[2]][args[3]] then
 		next_map = args[2]
 		next_scenario = args[3]
-		api.call_function("chat_message", "<color=white>Администратор </color><color=#FF69B4>"..api.get_data("clients_data")[client].name.."</color> <color=white>установил следующую карту</color> <color=#FF69B4>"..args[2].."</color> <color=white> и следующий сценарий </color><color=#FF69B4>"..args[3].."</color>", "system")
+		api.call_function("chat_message", "<color=white>Администратор </color><color=#8cd4ff>"..api.get_data("clients_data")[client].name.."</color> <color=white>установил следующую карту</color> <color=#8cd4ff>"..args[2].."</color> <color=white> и следующий сценарий </color><color=#8cd4ff>"..args[3].."</color>", "system")
 	else
 		api.call_function("chat_message", "Неизвестная карта или сценарий!", "error", true, client)
 	end
@@ -114,7 +147,7 @@ local function show_scenarios_list(client, args)
 end
 
 local function next_game(client, args)
-	local client_data= api.get_data("clients_data")[client]
+	local client_data = api.get_data("clients_data")[client]
 	local client_uuid = client_data.uuid
 	
     if game_data.step < groups[client_data.group].minimum_restart_step then
@@ -182,12 +215,12 @@ local function vote(client, args)
 		end
 		if args[2] == "y" then
 			player_votes[uuid] = "y"
-			api.call_function("chat_message", "Игрок "..api.get_data("clients_data")[client].name.. " проголосовал за начало новой игры.", "system")
+			api.call_function("chat_message", "Игрок <color=#8cd4ff>"..api.get_data("clients_data")[client].name.. "</color> проголосовал за начало новой игры.", "system")
 			show_current_vote_result()
 			check_vote()
 		elseif args[2] == "n" then
 			player_votes[uuid] = "n"
-			api.call_function("chat_message", "Игрок "..api.get_data("clients_data")[client].name.. " проголосовал против начала новой игры.", "system")
+			api.call_function("chat_message", "Игрок <color=#8cd4ff>"..api.get_data("clients_data")[client].name.. "</color> проголосовал против начала новой игры.", "system")
 			show_current_vote_result()
 			check_vote()
 		end
@@ -209,7 +242,7 @@ local function start_vote(client, args)
 			player_votes = {}
 		end)
 		voting_end_time = socket.gettime() + time_to_vote
-		api.call_function("chat_message", "Игрок "..name.." запустил голосование за начало новой игры\n\nПроголосовать за начало новой игры - /vote y \nПроголосовать против начала новой игры - /vote n", "system")
+		api.call_function("chat_message", "Игрок <color=#8cd4ff>"..name.."</color> запустил голосование за начало новой игры\n\nПроголосовать за начало новой игры - /vote y \nПроголосовать против начала новой игры - /vote n", "system")
 		vote(client, {"", "y"})
 	end
 end

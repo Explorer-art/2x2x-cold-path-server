@@ -37,7 +37,7 @@ local preferred_civs = {} -- UUID: civilization
 
 local random_motd = false
 
-local base_name = "[WG] 2x2x: Теперь /civ 2 раза за игру"
+local base_name = "[WG] 2x2x: Технические шоколадки >:3"
 
 local b_list = {}
 local preffered_civs_list = {}
@@ -83,7 +83,6 @@ local motd_messages = {
 	"[WG] 2x2x: Мирного решения не будет",
 	"[WG] 2x2x: Подготовить расстрельную команду",
 	"[WG] 2x2x: АНАРХИЯ!? Смешно.",
-	"[WG] 2x2x: Нативная реклама Expansion",
 	"[WG] 2x2x: Venom",
 	"[WG] 2x2x: T2x2",
 	"[WG] 2x2x: You shall not pass",
@@ -473,6 +472,7 @@ local function register_player(client, client_data, ip)
 			data = {
 				players_list = M.get_players_list(),
 				commands_list = plugin.commands_list(),
+				commands_info = plugin.commands_info(),
 				game_values = game_values,
 				buildings_data = buildings_data,
 				technology_data = technology_data,
@@ -754,10 +754,10 @@ local function on_data(data, ip, port, client)
 				end
 				M.nuclear_weapon(data.data.land, data.data.province)
 			elseif data.type == "vassal" then
-				if not ac.verify_action("vassal", clients_data[client].civilization, data.data.land2) then
+				if not ac.verify_action("vassal", clients_data[client].civilization, data.data.to) then
 					return false
 				end
-				M.vassal(clients_data[client].civilization, data.data.land2)
+				M.vassal(clients_data[client].civilization, data.data.to)
 			elseif data.type == "revolt" then
 				if not ac.verify_action("revolt", data.data.owner, data.data.vassal) then
 					return false
@@ -794,6 +794,8 @@ local function on_data(data, ip, port, client)
 				M.change_country_name(data.data.land, data.data.new_name, client)
 			elseif data.type == "change_country_color" then
 				M.change_country_color(data.data.land, data.data.new_color, client)
+			elseif data.type == "change_country_banner" then
+				M.change_country_banner(data.data.land, data.data.new_banner, client)
 			end
 		end
 	end)
@@ -1331,6 +1333,10 @@ function M.change_country_name(land, name, client)
 		return
 	end
 
+	if not game_data.lands[land] then
+		return
+	end
+
 	if game_data.lands[land].name == name then
 		return
 	end
@@ -1338,13 +1344,6 @@ function M.change_country_name(land, name, client)
 	local old_name = game_data.lands[land].name
 
 	game_data.lands[land].name = name
-
-	t = {
-		type = "country_name_changed",
-		data = {}
-	}
-
-	tcp_server.urgent_send(to_json(t), client)
 
 	M.chat("<color=grey>[</color><color=#FF69B4>2X2X</color><color=grey>]</color> <color=grey>> </color><color=white>Цивилизация </color><color=#FF69B4>"..old_name.."</color><color=white> получает название </color><color=#FF69B4>"..game_data.lands[land].name.."</color>", false)
 end
@@ -1356,18 +1355,29 @@ function M.change_country_color(land, color, client)
 		return
 	end
 
+	if not game_data.lands[land] then
+		return
+	end
+
 	if game_data.lands[land].color == color then
 		return
 	end
 
-	game_data.lands[clients_data[client].civilization].color = color
+	game_data.lands[land].color = color
+end
 
-	t = {
-		type = "country_color_changed",
-		data = {}
-	}
+function M.change_country_banner(land, banner, client)
+	local client_land = clients_data[client].civilization
 
-	tcp_server.urgent_send(to_json(t), client)
+	if land ~= client_land then
+		return
+	end
+
+	if not game_data.lands[land] then
+		return
+	end
+
+	game_data.lands[land].banner = banner
 end
 
 return M

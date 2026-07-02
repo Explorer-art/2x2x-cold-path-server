@@ -55,11 +55,11 @@ local function civ(client, args)
 	t[cl_data.uuid] = civ
 	
 	if cl_data.group == "junior_moderator" then
-	    api.call_function("chat_message", "<color=#BA55D3>**</color><color=white> У вас безлимитная пересадка ;)</color>", "system", true, client)
+	    api.call_function("chat_message", "У вас безлимитная пересадка ;)", "system", true, client)
 	elseif cl_data.group == "moder" then
-	    api.call_function("chat_message", "<color=#BA55D3>**</color><color=white> У вас безлимитная пересадка ;)</color>", "system", true, client)
+	    api.call_function("chat_message", "У вас безлимитная пересадка ;)", "system", true, client)
 	elseif cl_data.group == "admin" then
-	    api.call_function("chat_message", "<color=#BA55D3>**</color><color=white> У вас безлимитная пересадка ;)</color>", "system", true, client)
+	    api.call_function("chat_message", "У вас безлимитная пересадка ;)", "system", true, client)
 	else
 		b_list[cl_data.uuid] = 1
 	end
@@ -84,7 +84,7 @@ function M.on_player_joined(client)
 	if preffered_civs_list[cl_data.civilization] then
 		preffered_civs_list[cl_data.civilization].timer:remove()
 		preffered_civs_list[cl_data.civilization] = nil
-		api.call_function("chat_message", "Успешная пересадка!", "system", true, client)
+		api.call_function("chat_message", "<color=#8cd4ff>Успешная пересадка!</color>", "system", true, client)
 	end
 end
 

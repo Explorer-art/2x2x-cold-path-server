@@ -29,7 +29,7 @@ local function send_notification_message(client, message)
             }
         }
         api.send_data(to_json(t), client)
-		api.call_function("chat_message", "<color=yellow>Вам пришло сообщение!</color>", "message", true, client)
+		api.call_function("chat_message", "<color=#8cd4ff>Вам пришло сообщение!</color>", "message", true, client)
     end
 end
 
@@ -95,7 +95,7 @@ local function kick(client, args)
 		
 	if cl then
 		api.call_function("kick_function", cl, reason)
-		api.call_function("chat_message", "<color=#FF69B4>**</color> "..args[2].." кикнут по причине: "..reason, "system")
+		api.call_function("chat_message", "<color=#8cd4ff>**</color> "..args[2].." кикнут по причине: "..reason, "system")
 	else
 		api.call_function("chat_message", "Неизвестный ник.", "error", true, client)
 	end
@@ -167,7 +167,7 @@ local function ignore(client, args)
 		db.players_data[client_name].ignored_players[cl_uuid] = true
 		db:save()
 
-		api.call_function("chat_message", "<color=red>Личные сообщения от игрока "..cl_name.." заблокированы!</color>", "system", true, client)
+		api.call_function("chat_message", "<color=#cc0000>Личные сообщения от игрока "..cl_name.." заблокированы!</color>", "system", true, client)
 	end
 end
 
@@ -298,7 +298,7 @@ local function broadcast(client, args)
 		return false
 	end
 	
-	api.call_function("chat_message", "<color=grey>[</color><color=#FF69B4>СЕРВЕР</color><color=grey>]</color> <color=white>"..message.."</color> <color=grey>("..client_name..")</color>", "message")
+	api.call_function("chat_message", "<color=grey>[</color><color=#>**</color><color=grey>]</color> <color=white>"..message.."</color> <color=grey>("..client_name..")</color>", "message")
 end
 
 local function clearchat(client, args)
@@ -330,7 +330,7 @@ local function get_legend(client, args)
 end
 
 local function discord(client)
-	api.call_function("chat_message", "Наш Discord: <a=discord><color=#7289DA>[Присоединиться]</color></a>", "system", true, client)
+	api.call_function("chat_message", "Наш Discord: <a=discord><color=#7289da>[Присоединиться]</color></a>", "system", true, client)
 end
 
 function M.on_player_joined(client)
@@ -446,7 +446,7 @@ function M.on_player_registered(client)
 	end
 
 	-- Выдача роли оператора (полный доступ к командам)
-	-- if client_data.uuid == "UUID" or client_data.uuid == "UUID2" or client_data.uuid == "UUID3" then
+	-- if client_data.uuid == "531aa8b7feccc3cf1203550567c5ce66fcb7f8dc9d05f803661b0fbe" then
 	-- 	db.players_data[client_name].group = "operator"
 	-- 	db:save()
 	-- end

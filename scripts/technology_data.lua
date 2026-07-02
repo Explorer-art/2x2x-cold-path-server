@@ -133,7 +133,7 @@ local t = {
 	t_9_2 = {
 		cost = 33.6,
 		requirements = {"t_8_1","t_8_2"},
-		bonuses = {{"building_bridgehead_1"}, {"building_bridgehead_2"}, {"building_bridgehead_3"}}
+		bonuses = {{"building_bridgehead"}}
 	},
 	t_9_3 = {
 		cost = 33.6,
@@ -188,7 +188,7 @@ local t = {
 	t_14_1 = {
 		cost = 160.8,
 		requirements = {"t_13_2"},
-		bonuses = {{"building_science_center_1"}, {"building_science_center_2"}, {"building_science_center_3"}}
+		bonuses = {{"building_science_center_1"}}
 	},
 	t_14_2 = {
 		cost = 160.8,
@@ -220,6 +220,11 @@ local t = {
 		requirements = {"t_14_3"},
 		bonuses = {{"building_chemical_factory"}}
 	},
+	t_15_5 = {
+		cost = 219.9,
+		requirements = {"t_14_1"},
+		bonuses = {{"building_science_center_2"}}
+	},
 	t_16_1 = {
 		cost = 300.9,
 		requirements = {"t_15_1"},
@@ -250,54 +255,54 @@ local t = {
 		bonuses = {{"building_aerodrome_2"}}
 	},
 	t_18_1 = {
-		cost = 1000.5,
+		cost = 563.1,
 		requirements = {"t_17_1"},
 		bonuses = {{"building_nuclear_reactor_1"}}
 	},
 	t_18_2 = {
-		cost = 1000.5,
+		cost = 563.1,
 		requirements = {"t_17_1"},
 		bonuses = {{"nuclear_weapon"}}
 	},
 	t_18_3 = {
-		cost = 1000.5,
+		cost = 563.1,
 		requirements = {"t_17_3"},
 		bonuses = {{"building_aerodrome_3"}}
 	},
 	t_19_1 = {
-		cost = 1500.2,
+		cost = 770.3,
 		requirements = {"t_18_1","t_18_2"},
 		bonuses = {{"building_nuclear_reactor_2"}}
 	},
 	t_19_2 = {
-		cost = 1500.2,
+		cost = 770.3,
 		requirements = {"t_18_2", "t_18_3"},
 		bonuses = {{"building_air_defense_4"}}
 	},
 	t_19_3 = {
-		cost = 1500.2,
+		cost = 770.3,
 		requirements = {"t_18_3"},
 		bonuses = {{"building_aerodrome_4"}}
 	},
 	t_20_1 = {
-		cost = 2000.7,
+		cost = 1053.8,
 		requirements = {"t_19_1"},
 		bonuses = {{"building_fusion_reactor"}}
 	},
 	t_20_2 = {
-		cost = 2000.7,
+		cost = 1053.8,
 		requirements = {"t_19_2"},
 		bonuses = {{"building_air_defense_5"}}
 	},
 	t_20_3 = {
-		cost = 2000.7,
+		cost = 1053.8,
 		requirements = {"t_19_3"},
 		bonuses = {{"building_aerodrome_5"}}
 	},
-	t_21_2 = {
-		cost = 100000,-- 1441.6,
-		requirements = {"t_20_1","t_20_2","t_20_3"},
-		bonuses = {}
+	t_20_4 = {
+		cost = 1053,-- 1441.6,
+		requirements = {"t_19_2"},
+		bonuses = {{"building_missile_defense"}}
 	},
 }
 return t

@@ -13,6 +13,8 @@ local db
 local permissions = require "core.server.config.permissions"
 local groups = permissions.groups
 
+local server_settings = require "server_settings"
+
 local chat_message = function(text,type, just_for_host, client)
 	local prefix = server_settings.server_info.data.server_prefix
 	local c = "white"
@@ -21,7 +23,7 @@ local chat_message = function(text,type, just_for_host, client)
 		api.call_function("chat_function", prefix.."<color=white>"..text.."</color>", just_for_host, client)
 	elseif type == "error" then
 		prefix = server_settings.server_info.data.error_prefix
-		api.call_function("chat_function", prefix.."<color=red>"..text.."</color>", just_for_host, client)
+		api.call_function("chat_function", prefix.."<color=#cc0000>"..text.."</color>", just_for_host, client)
 		c = "red"
 	else
 		api.call_function("chat_function", "<color=white>"..text.."</color>", just_for_host, client)
@@ -76,9 +78,9 @@ local function get_level_prefix(name)
 	elseif db.levels[name].level >= 5 then
 	    prefix = "<color=#ffd700>[И]</color> "
 	elseif db.levels[name].level >= 3 then
-	    prefix = "<color=#47A76A>[И]</color> "
+	    prefix = "<color=#47a76a>[И]</color> "
 	elseif db.levels[name].level >= 2 then
-	    prefix = "<color=#967444>[И]</color> "
+	    prefix = "<color=#967444t>[И]</color> "
 	elseif db.levels[name].level >= 1 then
 	    prefix = "<color=#c0c0c0>[И]</color> "
 	else
@@ -174,7 +176,7 @@ function M.on_player_joined(client)
     end
 	
 	if client_data then
-		api.call_function("chat_message", prefix.."<color=white>"..client_name.."</color><color=#FF69B4> зашёл на сервер </color><color=grey>("..game_data.lands[client_data.civilization].name..")</color>")
+		api.call_function("chat_message", prefix.."<color=white>"..client_name.."</color><color=#8cd4ff> зашёл на сервер </color><color=grey>("..game_data.lands[client_data.civilization].name..")</color>")
 	end
 end
 
@@ -186,7 +188,7 @@ function M.on_player_disconnected(client)
     	client_name = "<color=yellow>"..client_name.."</color>"
     end
     
-	api.call_function("chat_message", "<color=white>"..api.get_data("clients_data")[client].name.."</color><color=#FF69B4> вышел с сервера</color>")
+	api.call_function("chat_message", "<color=white>"..api.get_data("clients_data")[client].name.."</color><color=#8cd4ff> вышел с сервера</color>")
 end
 
 return M

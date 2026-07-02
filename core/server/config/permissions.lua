@@ -29,8 +29,6 @@ t = {
 			minimum_restart_step = 0,
 
 			permissions = {
-				"/info",
-				"/reset_user"
 			}
 		},
 		chief_admin = {
@@ -48,8 +46,13 @@ t = {
 			permissions = {
 				"/role",
 				"/role_info",
+				"/info",
+				"/reset_user",
 				"/forcenext",
-				"/setprefix"
+				"/setprefix",
+				"/setlevel",
+				"/time",
+				"/time_reset"
 			}
 		},
 		senior_admin = {
@@ -129,6 +132,25 @@ t = {
 				"/removeprefix"
 			}
 		},
+		legend2 = {
+			priority = 7,
+			inheritance = {
+				"default"
+			},
+
+			prefix = "[L]",
+			prefix_color = "#42aaff",
+			suffix = false,
+			exempt = false,
+			minimum_restart_step = 50,
+
+			permissions = {
+				"/sc",
+				"/sm",
+				"/prefix",
+				"/removeprefix"
+			}
+		},
 		legend = {
 			priority = 7,
 			inheritance = {
@@ -172,7 +194,6 @@ t = {
 				"/setcapital",
 				"/civ",
 				"/level",
-				"/legend",
 				"/discord"
 			}
 		}

@@ -61,7 +61,7 @@ function M.before_next()
 			if db.levels[v.name].exp / 100 == db.levels[v.name].level + 1 then
 			    db.levels[v.name].level = db.levels[v.name].level + 1
 
-			    api.call_function("chat_message", "<color=yellow>Вы повысили свой уровень до "..db.levels[v.name].level..". Ура!</color>", "system", true, k)
+			    api.call_function("chat_message", "<color=#8cd4ff>Вы повысили свой уровень до "..db.levels[v.name].level..". Ура!</color>", "system", true, k)
 			end
 		end
 	end

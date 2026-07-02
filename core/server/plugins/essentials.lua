@@ -456,7 +456,7 @@ function M.verify_registration(client, client_data)
     local timestamp, reason = check_ban(client_data.uuid, client_data.unique_id, client_data.ip)
 
     if timestamp then
-        return false, "Вы забанены до: " .. os.date("%c", timestamp) .. "\n" .. reason .. "\n\nЕсли вы считаете что бан несправедливый, вы можете подать аппеляцию в нашем Discord."
+        return false, "Вы забанены до: " .. os.date("%c", timestamp) .. "\n" .. reason .. "\n\nЕсли вы считаете что бан несправедливый, вы можете подать аппеляцию в нашем Discord. Также, если вы хотите сократить срок бана, то вы можете зайти в наш Discord и зайти в канал \"исправительные работы\" для получения информации."
     end
 
     if check_banip(client_data.ip) then
