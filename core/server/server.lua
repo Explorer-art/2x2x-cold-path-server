@@ -17,6 +17,7 @@ local timer_module = require "core.timer"
 local timer_instance
 
 local server_settings = require "server_settings"
+local map_package = require "scripts.map_package"
 
 local HOST_IS_PLAYER = false
 local HOST_CIVILIZATION = nil
@@ -340,56 +341,37 @@ local function send_game_data(client, draw)
 	-- stat.remove_state("send_game_data")
 end
 
-local function get_file_data(name)
-    local path
+local function get_custom_map_package_path()
     if HOST_IS_PLAYER then
-        path = debug_game_mode_file_path.."exported_map/"
-    else
-        path = "maps/"..game_data.map.."/"
+        return (debug_game_mode_file_path or "").."exported_map.map"
     end
-    local file = io.open(path..name,"rb")
-    if not file then
-        print("file error: ", path, name)
-        return
-    end
-    local data = file:read("*a")
-    file:close()
-    return data
+    return "maps/"..tostring(game_data.map)..".map"
 end
 
 local prepared_map_files
 local custom_map_hash
 
 local function prepare_map_files()
-    local t = {}
-    t["adjacency.dat"] = get_file_data("adjacency.dat")
-    t["map_info.json"] = get_file_data("map_info.json")
-    t["offsets.json"] = get_file_data("offsets.json")
-    t["scenario.json"] = get_file_data("scenario.json")
-    local n = lume.count(game_data.provinces)
-    t.blurred_data = {}
-    for i=1, n do
-        t.blurred_data[i] = get_file_data("blurred_data/"..i)
+    local package_path = get_custom_map_package_path()
+    if not package_path then
+        print("file error: custom map package path not found")
+        return
     end
-    t.generated_data = {}
-    for i=1, n do
-        t.generated_data[i] = get_file_data("generated_data/"..i)
+
+    local package_data, err = map_package.read_package(package_path)
+    if not package_data then
+        print("file error:", package_path, err)
+        return
     end
-    t.description = {}
-    for i=1, n do
-        t.description[i] = get_file_data("description/"..i)
-    end
-    local mp = require "scripts.utils.message_pack"
-    local d = mp.pack(t)
-    print("map data std size:",#d)
-	local dt = mp.unpack(d)
-    d = lualzw.compress(d)
-    print("compressed",#d)
-    
+
+    local d = lualzw.compress(package_data.bytes)
+    print("map package size:", #package_data.bytes)
+    print("compressed", #d)
+
     local luaxxhash = require "luaxxhash"
     custom_map_hash = luaxxhash(d)
     prepared_map_files = base64.encode(d)
-    print("base64",#prepared_map_files)
+    print("base64", #prepared_map_files)
 end
 
 local function send_map_data(client)
@@ -522,6 +504,12 @@ local function next()
 					-- print("Error sendings data:", err)
 				-- end
 			end
+		end
+		-- Espionage: the notification queue has now been broadcast to every client;
+		-- clear it so it is not re-sent next turn. When the host is a player, its own
+		-- UI drains the shared queue instead (see hide_because_next).
+		if not HOST_IS_PLAYER then
+			game_data.espionage_notifications = {}
 		end
 		lume.clear(clients_ready)
 		host_is_ready = false
@@ -698,6 +686,10 @@ local function on_data(data, ip, port, client)
 					return false
 				end
 				core.set_tax(data.data.land, data.data.tax)
+			elseif data.type == "set_counter_intelligence" then
+				core.set_counter_intelligence(data.data.land, data.data.value)
+			elseif data.type == "espionage" then
+				core.espionage(data.data.land, data.data.op, data.data.target_province, data.data.chosen_building)
 			elseif data.type == "set_ideology" then
 				if not ac.verify_action("set_ideology", data.data.land, data.data.ideology) then
 					return false
@@ -1207,6 +1199,14 @@ end
 
 function M.set_ideology(land, ideology)
 	core.set_ideology(land, ideology)
+end
+
+function M.set_counter_intelligence(land, value)
+	core.set_counter_intelligence(land, value)
+end
+
+function M.espionage(land, op, target_province, chosen_building)
+	return core.espionage(land, op, target_province, chosen_building)
 end
 
 function M.build(land, province, building_id)

@@ -1,1 +1,0 @@
-The directory for the database that the game server uses.

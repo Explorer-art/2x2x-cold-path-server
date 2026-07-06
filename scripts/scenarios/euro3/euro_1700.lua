@@ -1,2693 +1,2592 @@
 local t = {
-  custom_map = true,
   custom_scenario = true,
-  id = "great northern war",
+  id = "Северная Война",
   lands = {
     Undeveloped_land = {
       allies = {},
-      color = { 100, 100, 100 },
+      color = { 200, 200, 200 },
       enemies = {},
       name = "undeveloped_land",
       pacts = {}
     },
     civ_0 = {
       allies = {},
-      capital = 509,
-      color = { 146, 96, 104 },
-      enemies = {},
-      name = "Речь Посполитая",
-      pacts = {}
-    },
-    civ_1 = {
-      allies = {},
-      capital = 220,
-      color = { 183, 170, 39 },
-      enemies = {},
-      name = "Испания",
-      pacts = {}
-    },
-    civ_10 = {
-      allies = {},
-      capital = 399,
-      color = { 178, 184, 174 },
-      enemies = {},
-      name = "Тироль",
-      pacts = {},
-      vassal = "civ_11"
-    },
-    civ_11 = {
-      allies = {},
-      capital = 416,
-      color = { 203, 205, 206 },
-      enemies = {},
-      name = "Австрия",
-      pacts = {}
-    },
-    civ_12 = {
-      allies = {},
-      capital = 360,
-      color = { 153, 154, 156 },
-      enemies = {},
-      name = "Краина",
-      pacts = {},
-      vassal = "civ_11"
-    },
-    civ_13 = {
-      allies = {},
-      capital = 366,
-      color = { 129, 161, 130 },
-      enemies = {},
-      name = "Трент",
-      pacts = {}
-    },
-    civ_14 = {
-      allies = {},
-      capital = 389,
-      color = { 185, 172, 186 },
-      enemies = {},
-      name = "Каринтия",
-      pacts = {},
-      vassal = "civ_11"
-    },
-    civ_15 = {
-      allies = {},
-      capital = 407,
-      color = { 165, 161, 130 },
-      enemies = {},
-      name = "Зальзбург",
-      pacts = {}
-    },
-    civ_16 = {
-      allies = {},
-      capital = 534,
-      color = { 171, 114, 33 },
-      enemies = {},
-      name = "Нидерланды",
-      pacts = {}
-    },
-    civ_17 = {
-      allies = {},
-      capital = 546,
-      color = { 158, 112, 85 },
-      enemies = {},
-      name = "Бремен",
-      pacts = {}
-    },
-    civ_18 = {
-      allies = {},
-      capital = 537,
-      color = { 109, 135, 114 },
-      enemies = {},
-      name = "Ольденбург",
-      pacts = {}
-    },
-    civ_19 = {
-      allies = {},
-      capital = 411,
-      color = { 90, 176, 170 },
-      enemies = {},
-      name = "Бавария",
-      pacts = {}
-    },
-    civ_2 = {
-      allies = {},
-      capital = 259,
-      color = { 230, 208, 154 },
-      enemies = {},
-      name = "Папская Область",
-      pacts = {}
-    },
-    civ_20 = {
-      allies = {},
-      capital = 447,
-      color = { 117, 94, 150 },
-      enemies = {},
-      name = "Баден",
-      pacts = {}
-    },
-    civ_21 = {
-      allies = {},
-      capital = 433,
-      color = { 174, 182, 56 },
-      enemies = {},
-      name = "Вюртембург",
-      pacts = {}
-    },
-    civ_22 = {
-      allies = {},
-      capital = 394,
-      color = { 138, 0, 0 },
-      enemies = {},
-      name = "Швейцария",
-      pacts = {}
-    },
-    civ_23 = {
-      allies = {},
-      capital = 491,
-      color = { 153, 80, 83 },
-      enemies = {},
-      name = "Франкфурт",
-      pacts = {}
-    },
-    civ_24 = {
-      allies = {},
-      capital = 431,
-      color = { 131, 151, 131 },
-      enemies = {},
-      name = "Гогенцоллерн",
-      pacts = {}
-    },
-    civ_25 = {
-      allies = {},
-      capital = 420,
-      color = { 151, 51, 133 },
-      enemies = {},
-      name = "Брейсгау",
-      pacts = {}
-    },
-    civ_26 = {
-      allies = {},
-      capital = 421,
-      color = { 156, 167, 72 },
-      enemies = {},
-      name = "Аугсбург",
-      pacts = {}
-    },
-    civ_27 = {
-      allies = {},
-      capital = 455,
-      color = { 104, 77, 139 },
-      enemies = {},
-      name = "Ансбах",
-      pacts = {}
-    },
-    civ_28 = {
-      allies = {},
-      capital = 430,
-      color = { 85, 154, 13 },
-      enemies = {},
-      name = "Бар",
-      pacts = {}
-    },
-    civ_29 = {
-      allies = {},
-      capital = 415,
-      color = { 129, 81, 128 },
-      enemies = {},
-      name = "Лотарингия",
-      pacts = {}
-    },
-    civ_3 = {
-      allies = {},
-      capital = 652,
-      color = { 83, 153, 161 },
+      capital = "649",
+      color = { 68, 203, 210 },
       enemies = {},
       name = "Швеция",
       pacts = {}
     },
-    civ_30 = {
+    civ_1 = {
       allies = {},
-      capital = 471,
-      color = { 10, 139, 90 },
+      capital = "391",
+      color = { 105, 0, 0 },
       enemies = {},
-      name = "Пфальц",
+      name = "Швейцарская Федерация",
       pacts = {}
     },
-    civ_31 = {
+    civ_11 = {
       allies = {},
-      capital = 494,
-      color = { 49, 159, 210 },
+      capital = "506",
+      color = { 147, 106, 117 },
       enemies = {},
-      name = "Шварцбург",
+      name = "Речь Поспилитая",
       pacts = {}
     },
-    civ_32 = {
+    civ_12 = {
       allies = {},
-      capital = 497,
-      color = { 148, 132, 119 },
+      capital = "394",
+      color = { 195, 191, 215 },
       enemies = {},
-      name = "Кёльн",
+      name = "Владения Габсбургов ",
       pacts = {}
     },
-    civ_33 = {
+    civ_18 = {
       allies = {},
-      capital = 467,
-      color = { 199, 126, 126 },
+      capital = "363",
+      color = { 99, 113, 52 },
       enemies = {},
-      name = "Трир",
+      name = "Трент",
       pacts = {}
     },
-    civ_34 = {
+    civ_2 = {
       allies = {},
-      capital = 526,
-      color = { 142, 173, 202 },
+      capital = "557",
+      color = { 180, 58, 99 },
       enemies = {},
-      name = "Браундшвейг-Люнебург",
-      pacts = {}
-    },
-    civ_35 = {
-      allies = {},
-      capital = 558,
-      color = { 121, 164, 152 },
-      enemies = {},
-      name = "Мекленбург",
-      pacts = {}
-    },
-    civ_36 = {
-      allies = {},
-      capital = 502,
-      color = { 160, 190, 103 },
-      enemies = {},
-      name = "Оснабрюк",
-      pacts = {}
-    },
-    civ_37 = {
-      allies = {},
-      capital = 485,
-      color = { 126, 120, 189 },
-      enemies = {},
-      name = "Падеборн",
-      pacts = {}
-    },
-    civ_38 = {
-      allies = {},
-      capital = 498,
-      color = { 2, 106, 193 },
-      enemies = {},
-      name = "Берг",
-      pacts = {}
-    },
-    civ_39 = {
-      allies = {},
-      capital = 503,
-      color = { 188, 79, 76 },
-      enemies = {},
-      name = "Великобритания",
-      pacts = {}
-    },
-    civ_4 = {
-      allies = {},
-      capital = 529,
-      color = { 75, 76, 77 },
-      enemies = {},
-      name = "Бранденбург",
-      pacts = {}
-    },
-    civ_40 = {
-      allies = {},
-      capital = 600,
-      color = { 185, 40, 51 },
-      enemies = {},
-      name = "Шотландия",
+      name = "Ирландия",
       pacts = {},
-      vassal = "civ_39"
+      vassal = "civ_72"
     },
-    civ_41 = {
+    civ_21 = {
       allies = {},
-      capital = 583,
-      color = { 88, 86, 83 },
-      enemies = {},
-      name = "Пруссия",
-      pacts = {},
-      vassal = "civ_4"
-    },
-    civ_42 = {
-      allies = {},
-      capital = 598,
-      color = { 160, 132, 109 },
-      enemies = {},
-      name = "Дания",
-      pacts = {}
-    },
-    civ_43 = {
-      allies = {},
-      capital = 659,
-      color = { 115, 21, 0 },
-      enemies = {},
-      name = "Норвегия",
-      pacts = {},
-      vassal = "civ_42"
-    },
-    civ_44 = {
-      allies = {},
-      capital = 226,
-      color = { 152, 24, 31 },
-      enemies = {},
-      name = "Османская Империя",
-      pacts = {}
-    },
-    civ_45 = {
-      allies = {},
-      capital = 322,
-      color = { 150, 43, 52 },
-      enemies = {},
-      name = "Валахия",
-      pacts = {},
-      vassal = "civ_44"
-    },
-    civ_46 = {
-      allies = {},
-      capital = 358,
-      color = { 147, 60, 52 },
-      enemies = {},
-      name = "Молдавия",
-      pacts = {},
-      vassal = "civ_44"
-    },
-    civ_47 = {
-      allies = {},
-      capital = 332,
-      color = { 142, 25, 36 },
-      enemies = {},
-      name = "Крымское Ханство",
-      pacts = {},
-      vassal = "civ_44"
-    },
-    civ_48 = {
-      allies = {},
-      capital = 354,
-      color = { 154, 145, 137 },
-      enemies = {},
-      name = "Иллирия",
-      pacts = {},
-      vassal = "civ_11"
-    },
-    civ_49 = {
-      allies = {},
-      capital = 339,
-      color = { 180, 150, 76 },
-      enemies = {},
-      name = "Венеция",
-      pacts = {}
-    },
-    civ_5 = {
-      allies = {},
-      capital = 492,
-      color = { 0, 116, 62 },
-      enemies = {},
-      name = "Саксония",
-      pacts = {}
-    },
-    civ_50 = {
-      allies = {},
-      capital = 337,
-      color = { 200, 10, 13 },
-      enemies = {},
-      name = "Воеводина",
-      pacts = {},
-      vassal = "civ_44"
-    },
-    civ_51 = {
-      allies = {},
-      capital = 436,
-      color = { 18, 161, 179 },
+      capital = "433",
+      color = { 77, 131, 124 },
       enemies = {},
       name = "Франция",
       pacts = {}
     },
-    civ_52 = {
+    civ_22 = {
       allies = {},
-      capital = 188,
-      color = { 64, 103, 1 },
+      capital = "489",
+      color = { 0, 98, 0 },
       enemies = {},
-      name = "Португалия",
+      name = "Саксония",
       pacts = {}
     },
-    civ_53 = {
+    civ_26 = {
       allies = {},
-      capital = 315,
-      color = { 150, 8, 48 },
+      capital = "595",
+      color = { 146, 83, 83 },
+      enemies = {},
+      name = "Королевство Дания",
+      pacts = {}
+    },
+    civ_27 = {
+      allies = {},
+      capital = "656",
+      color = { 126, 63, 63 },
+      enemies = {},
+      name = "Данская Норвегия",
+      pacts = {},
+      vassal = "civ_26"
+    },
+    civ_3 = {
+      allies = {},
+      capital = "664",
+      color = { 48, 183, 190 },
+      enemies = {},
+      name = "Финляндия ",
+      pacts = {},
+      vassal = "civ_0"
+    },
+    civ_37 = {
+      allies = {},
+      capital = "495",
+      color = { 193, 136, 237 },
+      enemies = {},
+      name = "Священная Римская Империя",
+      pacts = {}
+    },
+    civ_4 = {
+      allies = {},
+      capital = "621",
+      color = { 28, 163, 170 },
+      enemies = {},
+      name = "Ливония",
+      pacts = {},
+      vassal = "civ_0"
+    },
+    civ_41 = {
+      allies = {},
+      capital = "329",
+      color = { 140, 0, 0 },
+      enemies = {},
+      name = "Крымское Ханство",
+      pacts = {},
+      vassal = "civ_42"
+    },
+    civ_42 = {
+      allies = {},
+      capital = "223",
+      color = { 79, 0, 0 },
+      enemies = {},
+      name = "Османская Империя",
+      pacts = {}
+    },
+    civ_43 = {
+      allies = {},
+      capital = "309",
+      color = { 103, 0, 0 },
       enemies = {},
       name = "Босния",
       pacts = {},
-      vassal = "civ_44"
+      vassal = "civ_42"
     },
-    civ_54 = {
+    civ_45 = {
       allies = {},
-      capital = 284,
-      color = { 229, 116, 139 },
+      capital = "217",
+      color = { 174, 171, 0 },
+      enemies = {},
+      name = "Королевство Испания",
+      pacts = {}
+    },
+    civ_46 = {
+      allies = {},
+      capital = "355",
+      color = { 139, 0, 51 },
+      enemies = {},
+      name = "Молдавия",
+      pacts = {},
+      vassal = "civ_42"
+    },
+    civ_47 = {
+      allies = {},
+      capital = "313",
+      color = { 146, 27, 24 },
+      enemies = {},
+      name = "Валахия",
+      pacts = {},
+      vassal = "civ_42"
+    },
+    civ_48 = {
+      allies = {},
+      capital = "334",
+      color = { 134, 42, 50 },
+      enemies = {},
+      name = "Банат",
+      pacts = {},
+      vassal = "civ_42"
+    },
+    civ_49 = {
+      allies = {},
+      capital = "281",
+      color = { 128, 47, 162 },
       enemies = {},
       name = "Рагуза",
       pacts = {}
     },
-    civ_55 = {
+    civ_5 = {
       allies = {},
-      capital = 319,
-      color = { 90, 183, 89 },
+      capital = "408",
+      color = { 138, 209, 204 },
+      enemies = {},
+      name = "Бавария",
+      pacts = {}
+    },
+    civ_50 = {
+      allies = {},
+      capital = "316",
+      color = { 0, 197, 53 },
       enemies = {},
       name = "Генуя",
       pacts = {}
     },
+    civ_51 = {
+      allies = {},
+      capital = "322",
+      color = { 115, 71, 55 },
+      enemies = {},
+      name = "Савоя",
+      pacts = {}
+    },
+    civ_52 = {
+      allies = {},
+      capital = "333",
+      color = { 160, 137, 0 },
+      enemies = {},
+      name = "Испанский Милан",
+      pacts = {},
+      vassal = "civ_45"
+    },
+    civ_53 = {
+      allies = {},
+      capital = "224",
+      color = { 147, 136, 68 },
+      enemies = {},
+      name = "Испанский Неаполь",
+      pacts = {},
+      vassal = "civ_45"
+    },
+    civ_54 = {
+      allies = {},
+      capital = "256",
+      color = { 218, 211, 146 },
+      enemies = {},
+      name = "Папская Область",
+      pacts = {}
+    },
+    civ_55 = {
+      allies = {},
+      capital = "317",
+      color = { 131, 115, 150 },
+      enemies = {},
+      name = "Парма",
+      pacts = {}
+    },
     civ_56 = {
       allies = {},
-      capital = 325,
-      color = { 118, 27, 120 },
+      capital = "277",
+      color = { 70, 35, 125 },
       enemies = {},
-      name = "Савойа",
+      name = "Великое Герцегство Тосканское",
       pacts = {}
     },
     civ_57 = {
       allies = {},
-      capital = 280,
-      color = { 159, 131, 5 },
+      capital = "336",
+      color = { 170, 135, 58 },
       enemies = {},
-      name = "Тоскана",
-      pacts = {}
-    },
-    civ_58 = {
-      allies = {},
-      capital = 61,
-      color = { 150, 89, 0 },
-      enemies = {},
-      name = "Марокко",
+      name = "Республика Венеция",
       pacts = {}
     },
     civ_59 = {
       allies = {},
-      capital = 580,
-      color = { 0, 118, 0 },
+      capital = "124",
+      color = { 149, 0, 37 },
       enemies = {},
-      name = "Россия",
-      pacts = {}
+      name = "Эялет Алжир",
+      pacts = {},
+      vassal = "civ_42"
     },
     civ_6 = {
       allies = {},
-      capital = 486,
-      color = { 177, 175, 177 },
+      capital = "650",
+      color = { 88, 223, 230 },
       enemies = {},
-      name = "Силезия",
+      name = "Эстония",
       pacts = {},
-      vassal = "civ_11"
+      vassal = "civ_0"
     },
     civ_60 = {
       allies = {},
-      capital = 129,
-      color = { 72, 174, 141 },
+      capital = "31",
+      color = { 133, 34, 0 },
+      enemies = {},
+      name = "Эялет Ливия",
+      pacts = {},
+      vassal = "civ_42"
+    },
+    civ_61 = {
+      allies = {},
+      capital = "50",
+      color = { 164, 49, 33 },
+      enemies = {},
+      name = "Эялет Египет",
+      pacts = {},
+      vassal = "civ_42"
+    },
+    civ_62 = {
+      allies = {},
+      capital = "71",
+      color = { 126, 33, 38 },
+      enemies = {},
+      name = "Эялет Иордания",
+      pacts = {},
+      vassal = "civ_42"
+    },
+    civ_63 = {
+      allies = {},
+      capital = "66",
+      color = { 152, 53, 0 },
+      enemies = {},
+      name = "Эялет Ирак",
+      pacts = {},
+      vassal = "civ_42"
+    },
+    civ_64 = {
+      allies = {},
+      capital = "26",
+      color = { 132, 115, 156 },
+      enemies = {},
+      name = "Арабы",
+      pacts = {}
+    },
+    civ_65 = {
+      allies = {},
+      capital = "92",
+      color = { 145, 0, 43 },
+      enemies = {},
+      name = "Эялет Сирия",
+      pacts = {},
+      vassal = "civ_42"
+    },
+    civ_66 = {
+      allies = {},
+      capital = "185",
+      color = { 40, 143, 56 },
+      enemies = {},
+      name = "Португалия ",
+      pacts = {}
+    },
+    civ_67 = {
+      allies = {},
+      capital = "60",
+      color = { 61, 34, 22 },
+      enemies = {},
+      name = "Марокко ",
+      pacts = {}
+    },
+    civ_68 = {
+      allies = {},
+      capital = "135",
+      color = { 116, 40, 16 },
+      enemies = {},
+      name = "Эялет Тунис",
+      pacts = {},
+      vassal = "civ_42"
+    },
+    civ_69 = {
+      allies = {},
+      capital = "126",
+      color = { 108, 179, 149 },
       enemies = {},
       name = "Персия",
       pacts = {}
     },
-    civ_61 = {
-      allies = {},
-      capital = 69,
-      color = { 158, 0, 0 },
-      enemies = {},
-      name = "Эялет Иудея",
-      pacts = {},
-      vassal = "civ_44"
-    },
-    civ_62 = {
-      allies = {},
-      capital = 138,
-      color = { 143, 49, 55 },
-      enemies = {},
-      name = "Эялет Тунис",
-      pacts = {},
-      vassal = "civ_44"
-    },
-    civ_63 = {
-      allies = {},
-      capital = 126,
-      color = { 161, 30, 56 },
-      enemies = {},
-      name = "Эялет Алжир",
-      pacts = {},
-      vassal = "civ_44"
-    },
-    civ_64 = {
-      allies = {},
-      capital = 35,
-      color = { 154, 38, 44 },
-      enemies = {},
-      name = "Эялет Египет",
-      pacts = {},
-      vassal = "civ_44"
-    },
-    civ_65 = {
-      allies = {},
-      capital = 67,
-      color = { 194, 19, 45 },
-      enemies = {},
-      name = "Эялет Багдад",
-      pacts = {},
-      vassal = "civ_44"
-    },
-    civ_66 = {
-      allies = {},
-      capital = 42,
-      color = { 150, 34, 14 },
-      enemies = {},
-      name = "Эялет Ливия",
-      pacts = {},
-      vassal = "civ_44"
-    },
-    civ_67 = {
-      allies = {},
-      capital = 698,
-      color = { 0, 131, 144 },
-      enemies = {},
-      name = "Исландия",
-      pacts = {},
-      vassal = "civ_42"
-    },
-    civ_68 = {
-      allies = {},
-      capital = 479,
-      color = { 148, 141, 58 },
-      enemies = {},
-      name = "Испанские Нидерланды",
-      pacts = {},
-      vassal = "civ_1"
-    },
-    civ_69 = {
-      allies = {},
-      capital = 336,
-      color = { 187, 163, 50 },
-      enemies = {},
-      name = "Милан",
-      pacts = {},
-      vassal = "civ_1"
-    },
     civ_7 = {
       allies = {},
-      capital = 456,
-      color = { 159, 165, 166 },
+      capital = "646",
+      color = { 8, 143, 150 },
       enemies = {},
-      name = "Богемия",
+      name = "Ингрия",
       pacts = {},
-      vassal = "civ_11"
+      vassal = "civ_0"
     },
     civ_70 = {
       allies = {},
-      capital = 564,
-      color = { 163, 119, 108 },
+      capital = "577",
+      color = { 5, 142, 61 },
       enemies = {},
-      name = "Гольфштейн-Глюкоштадт",
-      pacts = {},
-      vassal = "civ_42"
+      name = "Российская Империя",
+      pacts = {}
     },
     civ_71 = {
       allies = {},
-      capital = 582,
-      color = { 160, 133, 102 },
+      capital = "696",
+      color = { 166, 103, 103 },
       enemies = {},
-      name = "Гольфштейн",
+      name = "Данская Исландия ",
       pacts = {},
-      vassal = "civ_42"
+      vassal = "civ_26"
     },
     civ_72 = {
       allies = {},
-      capital = 133,
-      color = { 184, 72, 85 },
+      capital = "500",
+      color = { 160, 38, 79 },
       enemies = {},
-      name = "Мальтийские Рыцари",
+      name = "Англия",
       pacts = {}
     },
     civ_73 = {
       allies = {},
-      capital = 380,
-      color = { 149, 138, 43 },
+      capital = "597",
+      color = { 110, 110, 110 },
       enemies = {},
-      name = "Франш Коное",
-      pacts = {},
-      vassal = "civ_1"
+      name = "Шотландия",
+      pacts = {}
+    },
+    civ_74 = {
+      allies = {},
+      capital = "580",
+      color = { 143, 150, 135 },
+      enemies = {},
+      name = "Пруссия",
+      pacts = {}
     },
     civ_8 = {
       allies = {},
-      capital = 449,
-      color = { 171, 169, 180 },
+      capital = "531",
+      color = { 191, 108, 0 },
       enemies = {},
-      name = "Моравия",
-      pacts = {},
-      vassal = "civ_11"
+      name = "Нидерланды ",
+      pacts = {}
     },
     civ_9 = {
       allies = {},
-      capital = 397,
-      color = { 160, 158, 166 },
+      capital = "476",
+      color = { 170, 154, 0 },
       enemies = {},
-      name = "Венгрия",
+      name = "Испанские Нидерланды ",
       pacts = {},
-      vassal = "civ_11"
+      vassal = "civ_45"
     }
   },
-  map = "euro3",
+  map = "europe_remastered",
   pacts_data = {},
   player_land = "Civilization",
-  provinces = { {
+  provinces = {
+    ["1"] = {
       water = true
-    }, {
-      b = {},
+    },
+    ["10"] = {
       o = "Undeveloped_land"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_58"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_66"
-    }, {
-      b = {},
-      o = "civ_64"
-    }, {
-      b = {},
-      o = "civ_64"
-    }, {
-      b = {},
-      o = "civ_64"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_64"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_66"
-    }, {
-      b = {},
-      o = "civ_66"
-    }, {
-      b = {},
-      o = "civ_65"
-    }, {
-      b = {},
-      o = "civ_58"
-    }, {
-      b = {},
-      o = "civ_64"
-    }, {
-      b = {},
-      o = "civ_64"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_65"
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      b = {},
-      o = "civ_65"
-    }, {
-      b = {},
-      o = "civ_66"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_64"
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      b = {},
-      o = "civ_58"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_64"
-    }, {
-      b = {},
-      o = "civ_64"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_64"
-    }, {
-      b = {},
-      o = "civ_58"
-    }, {
-      b = {},
-      o = "civ_62"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_63"
-    }, {
-      b = {},
-      o = "civ_66"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_58"
-    }, {
-      b = {},
-      o = "civ_65"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_65"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      b = {},
-      o = "civ_65"
-    }, {
-      b = {},
-      o = "civ_58"
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_63"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_52"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_63"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_61"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_65"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_63"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_63"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_65"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_63"
-    }, {
-      b = {},
-      o = "civ_63"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_62"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_65"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_58"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {
-        bridgehead = 1
-      },
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_63"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_72"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_62"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_49"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_52"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_52"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_52"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_52"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_52"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_49"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_52"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_52"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_52"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_2"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_55"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_60"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_57"
-    }, {
-      b = {},
-      o = "civ_2"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_54"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_53"
-    }, {
-      b = {},
-      o = "civ_2"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_1"
-    }, {
-      b = {},
-      o = "civ_49"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_53"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_47"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_49"
-    }, {
-      b = {},
-      o = "civ_53"
-    }, {
-      b = {},
-      o = "civ_53"
-    }, {
-      b = {},
-      o = "civ_56"
-    }, {
-      b = {},
-      o = "civ_53"
-    }, {
-      b = {},
-      o = "civ_45"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_48"
-    }, {
-      b = {},
-      o = "civ_55"
-    }, {
-      b = {},
-      o = "civ_2"
-    }, {
-      b = {},
-      o = "civ_49"
-    }, {
-      b = {},
-      o = "civ_45"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_49"
-    }, {
-      b = {},
-      o = "civ_56"
-    }, {
-      b = {},
-      o = "civ_53"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_44"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_48"
-    }, {
-      b = {},
-      o = "civ_53"
-    }, {
-      b = {},
-      o = "civ_47"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_50"
-    }, {
-      b = {},
+    },
+    ["100"] = {
       o = "civ_69"
-    }, {
-      b = {},
-      o = "civ_50"
-    }, {
-      b = {},
+    },
+    ["101"] = {
       o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_49"
-    }, {
-      b = {},
-      o = "civ_49"
-    }, {
-      b = {},
-      o = "civ_48"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_48"
-    }, {
-      b = {},
-      o = "civ_56"
-    }, {
-      b = {},
-      o = "civ_48"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_48"
-    }, {
-      b = {},
-      o = "civ_50"
-    }, {
-      b = {},
-      o = "civ_46"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_48"
-    }, {
-      b = {},
-      o = "civ_48"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
-      o = "civ_46"
-    }, {
-      b = {},
-      o = "civ_12"
-    }, {
-      b = {},
-      o = "civ_12"
-    }, {
-      b = {},
-      o = "civ_46"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
+    },
+    ["102"] = {
+      o = "civ_69"
+    },
+    ["103"] = {
+      o = "civ_63"
+    },
+    ["104"] = {
+      o = "civ_65"
+    },
+    ["105"] = {
       o = "civ_59"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_13"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
-      o = "civ_12"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_22"
-    }, {
-      b = {},
-      o = "civ_22"
-    }, {
-      b = {},
-      o = "civ_47"
-    }, {
-      b = {},
-      o = "civ_47"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
-      o = "civ_47"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_11"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
-      o = "civ_73"
-    }, {
-      b = {},
-      o = "civ_73"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_47"
-    }, {
-      b = {},
+    },
+    ["106"] = {
       o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_14"
-    }, {
-      b = {},
-      o = "civ_47"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_46"
-    }, {
-      b = {},
-      o = "civ_11"
-    }, {
-      b = {},
-      o = "civ_22"
-    }, {
-      b = {},
-      o = "civ_46"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_10"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_47"
-    }, {
-      b = {},
-      o = "civ_11"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_15"
-    }, {
-      b = {},
-      o = "civ_46"
-    }, {
-      b = {},
-      o = "civ_19"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_19"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_29"
-    }, {
-      b = {},
-      o = "civ_11"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_11"
-    }, {
-      b = {},
-      o = "civ_25"
-    }, {
-      b = {},
-      o = "civ_26"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_46"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_28"
-    }, {
-      b = {},
-      o = "civ_24"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
-      o = "civ_21"
-    }, {
-      b = {},
-      o = "civ_46"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_28"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_9"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_20"
-    }, {
-      b = {},
-      o = "civ_7"
-    }, {
-      b = {},
-      o = "civ_8"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_8"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_19"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_27"
-    }, {
-      b = {},
-      o = "civ_7"
-    }, {
-      b = {},
-      o = "civ_30"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_33"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_8"
-    }, {
-      b = {},
+    },
+    ["107"] = {
       o = "civ_68"
-    }, {
-      b = {},
-      o = "civ_8"
-    }, {
-      b = {},
-      o = "civ_68"
-    }, {
-      b = {},
-      o = "civ_33"
-    }, {
-      b = {},
-      o = "civ_30"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_30"
-    }, {
-      b = {},
-      o = "civ_8"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_33"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_7"
-    }, {
-      b = {},
-      o = "civ_30"
-    }, {
-      b = {},
-      o = "civ_6"
-    }, {
-      b = {},
-      o = "civ_68"
-    }, {
-      b = {},
-      o = "civ_6"
-    }, {
-      b = {},
-      o = "civ_51"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
+    },
+    ["108"] = {
       water = true
-    }, {
-      b = {},
-      o = "civ_37"
-    }, {
-      b = {},
-      o = "civ_6"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_68"
-    }, {
-      b = {},
-      o = "civ_23"
-    }, {
-      b = {},
-      o = "civ_5"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_31"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_32"
-    }, {
-      b = {},
-      o = "civ_38"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_68"
-    }, {
-      b = {},
-      o = "civ_68"
-    }, {
-      b = {},
-      o = "civ_36"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_68"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_5"
-    }, {
-      b = {},
-      o = "civ_4"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_5"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_16"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_5"
-    }, {
-      b = {},
-      o = "civ_34"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_4"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
+    },
+    ["109"] = {
       water = true
-    }, {
-      b = {},
-      o = "civ_16"
-    }, {
-      b = {},
-      o = "civ_16"
-    }, {
-      b = {},
-      o = "civ_34"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_16"
-    }, {
-      b = {},
-      o = "civ_4"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_16"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_18"
-    }, {
-      b = {},
-      o = "civ_16"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_17"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_4"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_16"
-    }, {
-      b = {},
-      o = "civ_41"
-    }, {
-      b = {},
-      o = "civ_35"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_70"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_4"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_71"
-    }, {
-      b = {},
-      o = "civ_41"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      b = {},
-      o = "civ_39"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_42"
-    }, {
-      b = {},
-      o = "civ_42"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_42"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_42"
-    }, {
-      b = {},
-      o = "civ_42"
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_41"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_42"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_42"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_42"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_0"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_40"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_42"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_67"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_67"
-    }, {
-      b = {},
-      o = "civ_67"
-    }, {
-      b = {},
-      o = "civ_67"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_67"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_3"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      water = true
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      water = true
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
-      o = "civ_59"
-    }, {
-      b = {},
+    },
+    ["11"] = {
       o = "Undeveloped_land"
-    }, {
-      b = {},
-      o = "civ_43"
-    }, {
-      b = {},
+    },
+    ["110"] = {
+      water = true
+    },
+    ["111"] = {
+      o = "civ_63"
+    },
+    ["112"] = {
+      o = "civ_42"
+    },
+    ["113"] = {
+      o = "civ_67"
+    },
+    ["114"] = {
+      o = "civ_65"
+    },
+    ["115"] = {
+      o = "civ_69"
+    },
+    ["116"] = {
+      o = "civ_65"
+    },
+    ["117"] = {
+      o = "civ_42"
+    },
+    ["118"] = {
+      o = "civ_65"
+    },
+    ["119"] = {
+      o = "civ_63"
+    },
+    ["12"] = {
+      o = "Undeveloped_land"
+    },
+    ["120"] = {
+      o = "civ_42"
+    },
+    ["121"] = {
+      water = true
+    },
+    ["122"] = {
+      water = true
+    },
+    ["123"] = {
+      o = "civ_65"
+    },
+    ["124"] = {
       o = "civ_59"
-    }, {
-      b = {},
+    },
+    ["125"] = {
+      o = "civ_63"
+    },
+    ["126"] = {
+      o = "civ_69"
+    },
+    ["127"] = {
+      o = "civ_65"
+    },
+    ["128"] = {
+      o = "civ_69"
+    },
+    ["129"] = {
+      water = true
+    },
+    ["13"] = {
+      o = "civ_60"
+    },
+    ["130"] = {
+      o = "Undeveloped_land"
+    },
+    ["131"] = {
+      water = true
+    },
+    ["132"] = {
+      o = "civ_65"
+    },
+    ["133"] = {
+      water = true
+    },
+    ["134"] = {
+      o = "civ_42"
+    },
+    ["135"] = {
+      o = "civ_68"
+    },
+    ["136"] = {
+      o = "civ_69"
+    },
+    ["137"] = {
+      o = "civ_45"
+    },
+    ["138"] = {
+      o = "civ_42"
+    },
+    ["139"] = {
+      o = "civ_42"
+    },
+    ["14"] = {
+      o = "civ_61"
+    },
+    ["140"] = {
+      o = "civ_45"
+    },
+    ["141"] = {
+      o = "civ_45"
+    },
+    ["142"] = {
+      o = "civ_42"
+    },
+    ["143"] = {
+      water = true
+    },
+    ["144"] = {
+      water = true
+    },
+    ["145"] = {
+      water = true
+    },
+    ["146"] = {
+      water = true
+    },
+    ["147"] = {
+      o = "civ_69"
+    },
+    ["148"] = {
+      o = "civ_42"
+    },
+    ["149"] = {
+      o = "civ_57"
+    },
+    ["15"] = {
+      o = "Undeveloped_land"
+    },
+    ["150"] = {
+      o = "civ_42"
+    },
+    ["151"] = {
+      o = "civ_42"
+    },
+    ["152"] = {
+      o = "civ_42"
+    },
+    ["153"] = {
+      o = "civ_42"
+    },
+    ["154"] = {
+      o = "civ_53"
+    },
+    ["155"] = {
+      o = "civ_69"
+    },
+    ["156"] = {
+      water = true
+    },
+    ["157"] = {
+      water = true
+    },
+    ["158"] = {
+      o = "civ_66"
+    },
+    ["159"] = {
+      water = true
+    },
+    ["16"] = {
+      o = "civ_61"
+    },
+    ["160"] = {
+      o = "civ_42"
+    },
+    ["161"] = {
+      o = "Undeveloped_land"
+    },
+    ["162"] = {
+      water = true
+    },
+    ["163"] = {
+      o = "civ_42"
+    },
+    ["164"] = {
+      o = "civ_45"
+    },
+    ["165"] = {
+      o = "civ_45"
+    },
+    ["166"] = {
+      o = "civ_42"
+    },
+    ["167"] = {
+      o = "civ_42"
+    },
+    ["168"] = {
+      o = "civ_66"
+    },
+    ["169"] = {
+      o = "civ_42"
+    },
+    ["17"] = {
+      water = true
+    },
+    ["170"] = {
+      o = "civ_42"
+    },
+    ["171"] = {
+      o = "civ_66"
+    },
+    ["172"] = {
+      o = "civ_42"
+    },
+    ["173"] = {
+      o = "civ_45"
+    },
+    ["174"] = {
+      o = "civ_42"
+    },
+    ["175"] = {
+      o = "civ_53"
+    },
+    ["176"] = {
+      o = "civ_45"
+    },
+    ["177"] = {
+      o = "civ_42"
+    },
+    ["178"] = {
+      o = "civ_45"
+    },
+    ["179"] = {
+      o = "civ_66"
+    },
+    ["18"] = {
+      o = "civ_61"
+    },
+    ["180"] = {
+      o = "civ_42"
+    },
+    ["181"] = {
+      o = "civ_45"
+    },
+    ["182"] = {
+      water = true
+    },
+    ["183"] = {
+      o = "civ_69"
+    },
+    ["184"] = {
+      o = "civ_42"
+    },
+    ["185"] = {
+      o = "civ_66"
+    },
+    ["186"] = {
+      o = "civ_42"
+    },
+    ["187"] = {
+      water = true
+    },
+    ["188"] = {
+      o = "civ_45"
+    },
+    ["189"] = {
+      o = "civ_45"
+    },
+    ["19"] = {
+      water = true
+    },
+    ["190"] = {
+      o = "civ_42"
+    },
+    ["191"] = {
+      o = "civ_69"
+    },
+    ["192"] = {
+      o = "civ_69"
+    },
+    ["193"] = {
+      o = "civ_69"
+    },
+    ["194"] = {
+      o = "civ_42"
+    },
+    ["195"] = {
+      o = "civ_42"
+    },
+    ["196"] = {
+      o = "civ_42"
+    },
+    ["197"] = {
+      o = "civ_42"
+    },
+    ["198"] = {
+      o = "civ_42"
+    },
+    ["199"] = {
+      o = "civ_42"
+    },
+    ["2"] = {
+      water = true
+    },
+    ["20"] = {
+      o = "civ_62"
+    },
+    ["200"] = {
+      o = "civ_45"
+    },
+    ["201"] = {
+      o = "civ_57"
+    },
+    ["202"] = {
+      o = "civ_69"
+    },
+    ["203"] = {
+      o = "civ_42"
+    },
+    ["204"] = {
+      o = "civ_42"
+    },
+    ["205"] = {
+      o = "civ_66"
+    },
+    ["206"] = {
+      o = "civ_42"
+    },
+    ["207"] = {
+      o = "civ_42"
+    },
+    ["208"] = {
+      o = "civ_69"
+    },
+    ["209"] = {
+      o = "civ_69"
+    },
+    ["21"] = {
+      o = "civ_64"
+    },
+    ["210"] = {
+      water = true
+    },
+    ["211"] = {
+      o = "civ_45"
+    },
+    ["212"] = {
+      o = "civ_42"
+    },
+    ["213"] = {
+      o = "civ_53"
+    },
+    ["214"] = {
+      water = true
+    },
+    ["215"] = {
+      o = "civ_42"
+    },
+    ["216"] = {
+      o = "civ_45"
+    },
+    ["217"] = {
+      o = "civ_45"
+    },
+    ["218"] = {
+      o = "civ_53"
+    },
+    ["219"] = {
+      o = "civ_42"
+    },
+    ["22"] = {
+      o = "civ_64"
+    },
+    ["220"] = {
+      o = "civ_66"
+    },
+    ["221"] = {
+      o = "civ_69"
+    },
+    ["222"] = {
+      o = "civ_42"
+    },
+    ["223"] = {
+      o = "civ_42"
+    },
+    ["224"] = {
+      o = "civ_53"
+    },
+    ["225"] = {
+      o = "civ_45"
+    },
+    ["226"] = {
+      water = true
+    },
+    ["227"] = {
+      o = "civ_42"
+    },
+    ["228"] = {
+      o = "civ_42"
+    },
+    ["229"] = {
+      water = true
+    },
+    ["23"] = {
+      o = "civ_64"
+    },
+    ["230"] = {
+      o = "civ_42"
+    },
+    ["231"] = {
+      o = "civ_69"
+    },
+    ["232"] = {
+      o = "civ_69"
+    },
+    ["233"] = {
+      water = true
+    },
+    ["234"] = {
+      o = "civ_69"
+    },
+    ["235"] = {
+      o = "civ_42"
+    },
+    ["236"] = {
+      o = "civ_45"
+    },
+    ["237"] = {
+      o = "civ_69"
+    },
+    ["238"] = {
+      o = "civ_69"
+    },
+    ["239"] = {
+      o = "civ_42"
+    },
+    ["24"] = {
+      o = "civ_64"
+    },
+    ["240"] = {
+      o = "civ_42"
+    },
+    ["241"] = {
+      water = true
+    },
+    ["242"] = {
+      o = "civ_42"
+    },
+    ["243"] = {
+      water = true
+    },
+    ["244"] = {
+      water = true
+    },
+    ["245"] = {
+      o = "civ_66"
+    },
+    ["246"] = {
+      o = "civ_45"
+    },
+    ["247"] = {
+      o = "civ_42"
+    },
+    ["248"] = {
+      water = true
+    },
+    ["249"] = {
+      o = "civ_69"
+    },
+    ["25"] = {
+      water = true
+    },
+    ["250"] = {
+      o = "civ_69"
+    },
+    ["251"] = {
+      o = "civ_42"
+    },
+    ["252"] = {
+      o = "civ_42"
+    },
+    ["253"] = {
+      o = "civ_69"
+    },
+    ["254"] = {
+      o = "civ_70"
+    },
+    ["255"] = {
+      water = true
+    },
+    ["256"] = {
+      o = "civ_54"
+    },
+    ["257"] = {
+      o = "civ_42"
+    },
+    ["258"] = {
+      o = "civ_42"
+    },
+    ["259"] = {
+      o = "civ_53"
+    },
+    ["26"] = {
+      o = "civ_64"
+    },
+    ["260"] = {
+      o = "civ_50"
+    },
+    ["261"] = {
+      o = "civ_42"
+    },
+    ["262"] = {
+      o = "civ_42"
+    },
+    ["263"] = {
+      o = "civ_45"
+    },
+    ["264"] = {
+      o = "civ_45"
+    },
+    ["265"] = {
+      o = "civ_42"
+    },
+    ["266"] = {
+      o = "civ_42"
+    },
+    ["267"] = {
+      o = "civ_42"
+    },
+    ["268"] = {
+      o = "civ_42"
+    },
+    ["269"] = {
+      o = "civ_45"
+    },
+    ["27"] = {
+      o = "civ_45"
+    },
+    ["270"] = {
+      water = true
+    },
+    ["271"] = {
+      o = "civ_42"
+    },
+    ["272"] = {
+      o = "civ_42"
+    },
+    ["273"] = {
+      o = "civ_69"
+    },
+    ["274"] = {
+      water = true
+    },
+    ["275"] = {
+      o = "civ_42"
+    },
+    ["276"] = {
+      o = "civ_21"
+    },
+    ["277"] = {
+      o = "civ_56"
+    },
+    ["278"] = {
+      o = "civ_54"
+    },
+    ["279"] = {
+      o = "civ_42"
+    },
+    ["28"] = {
+      o = "Undeveloped_land"
+    },
+    ["280"] = {
+      o = "civ_45"
+    },
+    ["281"] = {
+      o = "civ_49"
+    },
+    ["282"] = {
+      o = "civ_21"
+    },
+    ["283"] = {
       o = "civ_43"
-    } },
-  scenario_n = 4,
-  technology_lvl = 9,
+    },
+    ["284"] = {
+      o = "civ_54"
+    },
+    ["285"] = {
+      o = "civ_42"
+    },
+    ["286"] = {
+      o = "civ_42"
+    },
+    ["287"] = {
+      o = "civ_42"
+    },
+    ["288"] = {
+      o = "civ_45"
+    },
+    ["289"] = {
+      o = "civ_57"
+    },
+    ["29"] = {
+      o = "Undeveloped_land"
+    },
+    ["290"] = {
+      o = "civ_42"
+    },
+    ["291"] = {
+      o = "civ_21"
+    },
+    ["292"] = {
+      o = "civ_42"
+    },
+    ["293"] = {
+      o = "civ_42"
+    },
+    ["294"] = {
+      o = "civ_70"
+    },
+    ["295"] = {
+      o = "civ_43"
+    },
+    ["296"] = {
+      water = true
+    },
+    ["297"] = {
+      water = true
+    },
+    ["298"] = {
+      water = true
+    },
+    ["299"] = {
+      o = "civ_21"
+    },
+    ["3"] = {
+      water = true
+    },
+    ["30"] = {
+      o = "civ_60"
+    },
+    ["300"] = {
+      o = "civ_21"
+    },
+    ["301"] = {
+      o = "civ_21"
+    },
+    ["302"] = {
+      o = "civ_42"
+    },
+    ["303"] = {
+      water = true
+    },
+    ["304"] = {
+      o = "civ_42"
+    },
+    ["305"] = {
+      o = "civ_21"
+    },
+    ["306"] = {
+      o = "civ_41"
+    },
+    ["307"] = {
+      o = "civ_21"
+    },
+    ["308"] = {
+      o = "civ_57"
+    },
+    ["309"] = {
+      o = "civ_43"
+    },
+    ["31"] = {
+      o = "civ_60"
+    },
+    ["310"] = {
+      o = "civ_43"
+    },
+    ["311"] = {
+      o = "civ_51"
+    },
+    ["312"] = {
+      o = "civ_43"
+    },
+    ["313"] = {
+      o = "civ_47"
+    },
+    ["314"] = {
+      o = "civ_42"
+    },
+    ["315"] = {
+      o = "civ_12"
+    },
+    ["316"] = {
+      o = "civ_50"
+    },
+    ["317"] = {
+      o = "civ_55"
+    },
+    ["318"] = {
+      o = "civ_57"
+    },
+    ["319"] = {
+      o = "civ_47"
+    },
+    ["32"] = {
+      o = "civ_63"
+    },
+    ["320"] = {
+      o = "civ_21"
+    },
+    ["321"] = {
+      o = "civ_57"
+    },
+    ["322"] = {
+      o = "civ_51"
+    },
+    ["323"] = {
+      o = "civ_43"
+    },
+    ["324"] = {
+      o = "civ_21"
+    },
+    ["325"] = {
+      o = "civ_42"
+    },
+    ["326"] = {
+      o = "civ_21"
+    },
+    ["327"] = {
+      o = "civ_12"
+    },
+    ["328"] = {
+      o = "civ_43"
+    },
+    ["329"] = {
+      o = "civ_41"
+    },
+    ["33"] = {
+      o = "civ_67"
+    },
+    ["330"] = {
+      o = "civ_12"
+    },
+    ["331"] = {
+      o = "civ_21"
+    },
+    ["332"] = {
+      o = "civ_48"
+    },
+    ["333"] = {
+      o = "civ_52"
+    },
+    ["334"] = {
+      o = "civ_48"
+    },
+    ["335"] = {
+      o = "civ_70"
+    },
+    ["336"] = {
+      o = "civ_57"
+    },
+    ["337"] = {
+      o = "civ_12"
+    },
+    ["338"] = {
+      o = "civ_12"
+    },
+    ["339"] = {
+      o = "civ_21"
+    },
+    ["34"] = {
+      o = "civ_61"
+    },
+    ["340"] = {
+      water = true
+    },
+    ["341"] = {
+      o = "civ_12"
+    },
+    ["342"] = {
+      o = "civ_21"
+    },
+    ["343"] = {
+      o = "civ_12"
+    },
+    ["344"] = {
+      o = "civ_21"
+    },
+    ["345"] = {
+      o = "civ_21"
+    },
+    ["346"] = {
+      o = "civ_12"
+    },
+    ["347"] = {
+      o = "civ_48"
+    },
+    ["348"] = {
+      o = "civ_46"
+    },
+    ["349"] = {
+      o = "civ_21"
+    },
+    ["35"] = {
+      o = "civ_61"
+    },
+    ["350"] = {
+      o = "civ_12"
+    },
+    ["351"] = {
+      o = "civ_12"
+    },
+    ["352"] = {
+      water = true
+    },
+    ["353"] = {
+      water = true
+    },
+    ["354"] = {
+      o = "civ_12"
+    },
+    ["355"] = {
+      o = "civ_46"
+    },
+    ["356"] = {
+      o = "civ_12"
+    },
+    ["357"] = {
+      o = "civ_12"
+    },
+    ["358"] = {
+      o = "civ_46"
+    },
+    ["359"] = {
+      o = "civ_21"
+    },
+    ["36"] = {
+      o = "Undeveloped_land"
+    },
+    ["360"] = {
+      o = "civ_12"
+    },
+    ["361"] = {
+      o = "civ_70"
+    },
+    ["362"] = {
+      water = true
+    },
+    ["363"] = {
+      o = "civ_18"
+    },
+    ["364"] = {
+      o = "civ_12"
+    },
+    ["365"] = {
+      o = "civ_12"
+    },
+    ["366"] = {
+      water = true
+    },
+    ["367"] = {
+      o = "civ_1"
+    },
+    ["368"] = {
+      o = "civ_1"
+    },
+    ["369"] = {
+      o = "civ_41"
+    },
+    ["37"] = {
+      o = "civ_64"
+    },
+    ["370"] = {
+      o = "civ_41"
+    },
+    ["371"] = {
+      o = "civ_12"
+    },
+    ["372"] = {
+      o = "civ_41"
+    },
+    ["373"] = {
+      water = true
+    },
+    ["374"] = {
+      o = "civ_12"
+    },
+    ["375"] = {
+      o = "civ_21"
+    },
+    ["376"] = {
+      o = "civ_12"
+    },
+    ["377"] = {
+      o = "civ_21"
+    },
+    ["378"] = {
+      o = "civ_21"
+    },
+    ["379"] = {
+      water = true
+    },
+    ["38"] = {
+      o = "civ_63"
+    },
+    ["380"] = {
+      o = "civ_21"
+    },
+    ["381"] = {
+      o = "civ_21"
+    },
+    ["382"] = {
+      o = "civ_41"
+    },
+    ["383"] = {
+      o = "civ_70"
+    },
+    ["384"] = {
+      o = "civ_21"
+    },
+    ["385"] = {
+      o = "civ_21"
+    },
+    ["386"] = {
+      o = "civ_12"
+    },
+    ["387"] = {
+      o = "civ_41"
+    },
+    ["388"] = {
+      o = "civ_21"
+    },
+    ["389"] = {
+      o = "civ_41"
+    },
+    ["39"] = {
+      o = "civ_62"
+    },
+    ["390"] = {
+      o = "civ_12"
+    },
+    ["391"] = {
+      o = "civ_1"
+    },
+    ["392"] = {
+      o = "civ_46"
+    },
+    ["393"] = {
+      water = true
+    },
+    ["394"] = {
+      o = "civ_12"
+    },
+    ["395"] = {
+      water = true
+    },
+    ["396"] = {
+      o = "civ_12"
+    },
+    ["397"] = {
+      o = "civ_21"
+    },
+    ["398"] = {
+      o = "civ_21"
+    },
+    ["399"] = {
+      o = "civ_41"
+    },
+    ["4"] = {
+      o = "civ_45"
+    },
+    ["40"] = {
+      o = "civ_63"
+    },
+    ["400"] = {
+      o = "civ_12"
+    },
+    ["401"] = {
+      o = "civ_21"
+    },
+    ["402"] = {
+      o = "civ_12"
+    },
+    ["403"] = {
+      o = "civ_21"
+    },
+    ["404"] = {
+      o = "civ_12"
+    },
+    ["405"] = {
+      o = "civ_46"
+    },
+    ["406"] = {
+      o = "civ_5"
+    },
+    ["407"] = {
+      o = "civ_21"
+    },
+    ["408"] = {
+      o = "civ_5"
+    },
+    ["409"] = {
+      water = true
+    },
+    ["41"] = {
+      o = "civ_60"
+    },
+    ["410"] = {
+      o = "civ_12"
+    },
+    ["411"] = {
+      o = "civ_70"
+    },
+    ["412"] = {
+      o = "civ_37"
+    },
+    ["413"] = {
+      o = "civ_12"
+    },
+    ["414"] = {
+      o = "civ_11"
+    },
+    ["415"] = {
+      o = "civ_21"
+    },
+    ["416"] = {
+      o = "civ_12"
+    },
+    ["417"] = {
+      o = "civ_37"
+    },
+    ["418"] = {
+      o = "civ_37"
+    },
+    ["419"] = {
+      o = "civ_21"
+    },
+    ["42"] = {
+      o = "civ_64"
+    },
+    ["420"] = {
+      water = true
+    },
+    ["421"] = {
+      o = "civ_46"
+    },
+    ["422"] = {
+      o = "civ_12"
+    },
+    ["423"] = {
+      o = "civ_11"
+    },
+    ["424"] = {
+      o = "civ_11"
+    },
+    ["425"] = {
+      o = "civ_70"
+    },
+    ["426"] = {
+      water = true
+    },
+    ["427"] = {
+      o = "civ_37"
+    },
+    ["428"] = {
+      o = "civ_37"
+    },
+    ["429"] = {
+      o = "civ_12"
+    },
+    ["43"] = {
+      o = "civ_61"
+    },
+    ["430"] = {
+      o = "civ_37"
+    },
+    ["431"] = {
+      o = "civ_46"
+    },
+    ["432"] = {
+      o = "civ_11"
+    },
+    ["433"] = {
+      o = "civ_21"
+    },
+    ["434"] = {
+      o = "civ_21"
+    },
+    ["435"] = {
+      o = "civ_12"
+    },
+    ["436"] = {
+      o = "civ_11"
+    },
+    ["437"] = {
+      o = "civ_12"
+    },
+    ["438"] = {
+      water = true
+    },
+    ["439"] = {
+      o = "civ_37"
+    },
+    ["44"] = {
+      o = "civ_62"
+    },
+    ["440"] = {
+      o = "civ_11"
+    },
+    ["441"] = {
+      o = "civ_12"
+    },
+    ["442"] = {
+      water = true
+    },
+    ["443"] = {
+      o = "civ_70"
+    },
+    ["444"] = {
+      o = "civ_37"
+    },
+    ["445"] = {
+      o = "civ_12"
+    },
+    ["446"] = {
+      o = "civ_12"
+    },
+    ["447"] = {
+      o = "civ_21"
+    },
+    ["448"] = {
+      o = "civ_12"
+    },
+    ["449"] = {
+      o = "civ_70"
+    },
+    ["45"] = {
+      o = "civ_67"
+    },
+    ["450"] = {
+      o = "civ_5"
+    },
+    ["451"] = {
+      o = "civ_21"
+    },
+    ["452"] = {
+      o = "civ_37"
+    },
+    ["453"] = {
+      o = "civ_12"
+    },
+    ["454"] = {
+      o = "civ_37"
+    },
+    ["455"] = {
+      o = "civ_11"
+    },
+    ["456"] = {
+      o = "civ_11"
+    },
+    ["457"] = {
+      o = "civ_37"
+    },
+    ["458"] = {
+      o = "civ_11"
+    },
+    ["459"] = {
+      o = "civ_11"
+    },
+    ["46"] = {
+      o = "civ_69"
+    },
+    ["460"] = {
+      o = "civ_12"
+    },
+    ["461"] = {
+      o = "civ_9"
+    },
+    ["462"] = {
+      o = "civ_12"
+    },
+    ["463"] = {
+      o = "civ_9"
+    },
+    ["464"] = {
+      o = "civ_37"
+    },
+    ["465"] = {
+      o = "civ_37"
+    },
+    ["466"] = {
+      o = "civ_70"
+    },
+    ["467"] = {
+      o = "civ_11"
+    },
+    ["468"] = {
+      o = "civ_37"
+    },
+    ["469"] = {
+      o = "civ_12"
+    },
+    ["47"] = {
+      o = "civ_61"
+    },
+    ["470"] = {
+      o = "civ_70"
+    },
+    ["471"] = {
+      o = "civ_37"
+    },
+    ["472"] = {
+      o = "civ_70"
+    },
+    ["473"] = {
+      o = "civ_12"
+    },
+    ["474"] = {
+      o = "civ_37"
+    },
+    ["475"] = {
+      o = "civ_12"
+    },
+    ["476"] = {
+      o = "civ_9"
+    },
+    ["477"] = {
+      o = "civ_12"
+    },
+    ["478"] = {
+      o = "civ_9"
+    },
+    ["479"] = {
+      o = "civ_72"
+    },
+    ["48"] = {
+      o = "civ_61"
+    },
+    ["480"] = {
+      o = "civ_11"
+    },
+    ["481"] = {
+      water = true
+    },
+    ["482"] = {
+      o = "civ_37"
+    },
+    ["483"] = {
+      o = "civ_12"
+    },
+    ["484"] = {
+      o = "civ_70"
+    },
+    ["485"] = {
+      o = "civ_11"
+    },
+    ["486"] = {
+      o = "civ_11"
+    },
+    ["487"] = {
+      o = "civ_9"
+    },
+    ["488"] = {
+      o = "civ_37"
+    },
+    ["489"] = {
+      o = "civ_22"
+    },
+    ["49"] = {
+      o = "civ_69"
+    },
+    ["490"] = {
+      o = "civ_11"
+    },
+    ["491"] = {
+      o = "civ_37"
+    },
+    ["492"] = {
+      o = "civ_11"
+    },
+    ["493"] = {
+      o = "civ_70"
+    },
+    ["494"] = {
+      o = "civ_37"
+    },
+    ["495"] = {
+      o = "civ_37"
+    },
+    ["496"] = {
+      o = "civ_72"
+    },
+    ["497"] = {
+      o = "civ_9"
+    },
+    ["498"] = {
+      o = "civ_9"
+    },
+    ["499"] = {
+      o = "civ_37"
+    },
+    ["5"] = {
+      water = true
+    },
+    ["50"] = {
+      o = "civ_61"
+    },
+    ["500"] = {
+      o = "civ_72"
+    },
+    ["501"] = {
+      o = "civ_9"
+    },
+    ["502"] = {
+      o = "civ_11"
+    },
+    ["503"] = {
+      o = "civ_22"
+    },
+    ["504"] = {
+      o = "civ_74"
+    },
+    ["505"] = {
+      o = "civ_70"
+    },
+    ["506"] = {
+      o = "civ_11"
+    },
+    ["507"] = {
+      o = "civ_22"
+    },
+    ["508"] = {
+      o = "civ_11"
+    },
+    ["509"] = {
+      o = "civ_8"
+    },
+    ["51"] = {
+      o = "civ_67"
+    },
+    ["510"] = {
+      o = "civ_11"
+    },
+    ["511"] = {
+      o = "civ_22"
+    },
+    ["512"] = {
+      o = "civ_37"
+    },
+    ["513"] = {
+      o = "civ_11"
+    },
+    ["514"] = {
+      o = "civ_72"
+    },
+    ["515"] = {
+      o = "civ_72"
+    },
+    ["516"] = {
+      o = "civ_74"
+    },
+    ["517"] = {
+      o = "civ_2"
+    },
+    ["518"] = {
+      o = "civ_11"
+    },
+    ["519"] = {
+      o = "civ_70"
+    },
+    ["52"] = {
+      o = "civ_68"
+    },
+    ["520"] = {
+      water = true
+    },
+    ["521"] = {
+      o = "civ_8"
+    },
+    ["522"] = {
+      o = "civ_8"
+    },
+    ["523"] = {
+      o = "civ_37"
+    },
+    ["524"] = {
+      o = "civ_72"
+    },
+    ["525"] = {
+      o = "civ_8"
+    },
+    ["526"] = {
+      o = "civ_74"
+    },
+    ["527"] = {
+      o = "civ_70"
+    },
+    ["528"] = {
+      o = "civ_70"
+    },
+    ["529"] = {
+      o = "civ_2"
+    },
+    ["53"] = {
+      water = true
+    },
+    ["530"] = {
+      o = "civ_70"
+    },
+    ["531"] = {
+      o = "civ_8"
+    },
+    ["532"] = {
+      o = "civ_72"
+    },
+    ["533"] = {
+      o = "civ_70"
+    },
+    ["534"] = {
+      o = "civ_37"
+    },
+    ["535"] = {
+      o = "civ_8"
+    },
+    ["536"] = {
+      o = "civ_2"
+    },
+    ["537"] = {
+      o = "civ_70"
+    },
+    ["538"] = {
+      o = "civ_11"
+    },
+    ["539"] = {
+      o = "civ_11"
+    },
+    ["54"] = {
+      water = true
+    },
+    ["540"] = {
+      water = true
+    },
+    ["541"] = {
+      o = "civ_11"
+    },
+    ["542"] = {
+      o = "civ_37"
+    },
+    ["543"] = {
+      o = "civ_37"
+    },
+    ["544"] = {
+      o = "civ_11"
+    },
+    ["545"] = {
+      o = "civ_70"
+    },
+    ["546"] = {
+      o = "civ_74"
+    },
+    ["547"] = {
+      o = "civ_11"
+    },
+    ["548"] = {
+      o = "civ_11"
+    },
+    ["549"] = {
+      o = "civ_11"
+    },
+    ["55"] = {
+      o = "civ_64"
+    },
+    ["550"] = {
+      o = "civ_72"
+    },
+    ["551"] = {
+      o = "civ_2"
+    },
+    ["552"] = {
+      o = "civ_70"
+    },
+    ["553"] = {
+      o = "civ_8"
+    },
+    ["554"] = {
+      o = "civ_74"
+    },
+    ["555"] = {
+      o = "civ_37"
+    },
+    ["556"] = {
+      o = "civ_37"
+    },
+    ["557"] = {
+      o = "civ_2"
+    },
+    ["558"] = {
+      o = "civ_72"
+    },
+    ["559"] = {
+      o = "civ_70"
+    },
+    ["56"] = {
+      o = "civ_59"
+    },
+    ["560"] = {
+      o = "civ_70"
+    },
+    ["561"] = {
+      o = "civ_26"
+    },
+    ["562"] = {
+      o = "civ_11"
+    },
+    ["563"] = {
+      o = "civ_70"
+    },
+    ["564"] = {
+      o = "civ_74"
+    },
+    ["565"] = {
+      water = true
+    },
+    ["566"] = {
+      o = "civ_37"
+    },
+    ["567"] = {
+      o = "civ_11"
+    },
+    ["568"] = {
+      o = "civ_11"
+    },
+    ["569"] = {
+      o = "civ_2"
+    },
+    ["57"] = {
+      o = "civ_60"
+    },
+    ["570"] = {
+      water = true
+    },
+    ["571"] = {
+      o = "civ_72"
+    },
+    ["572"] = {
+      o = "civ_11"
+    },
+    ["573"] = {
+      o = "civ_2"
+    },
+    ["574"] = {
+      o = "civ_72"
+    },
+    ["575"] = {
+      water = true
+    },
+    ["576"] = {
+      water = true
+    },
+    ["577"] = {
+      o = "civ_70"
+    },
+    ["578"] = {
+      o = "civ_11"
+    },
+    ["579"] = {
+      o = "civ_26"
+    },
+    ["58"] = {
+      water = true
+    },
+    ["580"] = {
+      o = "civ_74"
+    },
+    ["581"] = {
+      o = "civ_37"
+    },
+    ["582"] = {
+      o = "civ_70"
+    },
+    ["583"] = {
+      o = "civ_72"
+    },
+    ["584"] = {
+      o = "civ_2"
+    },
+    ["585"] = {
+      water = true
+    },
+    ["586"] = {
+      o = "civ_70"
+    },
+    ["587"] = {
+      water = true
+    },
+    ["588"] = {
+      o = "civ_73"
+    },
+    ["589"] = {
+      o = "civ_26"
+    },
+    ["59"] = {
+      water = true
+    },
+    ["590"] = {
+      o = "civ_26"
+    },
+    ["591"] = {
+      o = "civ_11"
+    },
+    ["592"] = {
+      o = "civ_26"
+    },
+    ["593"] = {
+      o = "civ_11"
+    },
+    ["594"] = {
+      o = "civ_73"
+    },
+    ["595"] = {
+      o = "civ_26"
+    },
+    ["596"] = {
+      o = "civ_26"
+    },
+    ["597"] = {
+      o = "civ_73"
+    },
+    ["598"] = {
+      o = "civ_74"
+    },
+    ["599"] = {
+      o = "civ_11"
+    },
+    ["6"] = {
+      o = "civ_67"
+    },
+    ["60"] = {
+      o = "civ_67"
+    },
+    ["600"] = {
+      o = "civ_70"
+    },
+    ["601"] = {
+      o = "civ_73"
+    },
+    ["602"] = {
+      o = "civ_26"
+    },
+    ["603"] = {
+      o = "civ_0"
+    },
+    ["604"] = {
+      water = true
+    },
+    ["605"] = {
+      o = "civ_73"
+    },
+    ["606"] = {
+      o = "civ_70"
+    },
+    ["607"] = {
+      o = "civ_70"
+    },
+    ["608"] = {
+      o = "civ_4"
+    },
+    ["609"] = {
+      o = "civ_73"
+    },
+    ["61"] = {
+      o = "civ_63"
+    },
+    ["610"] = {
+      o = "civ_11"
+    },
+    ["611"] = {
+      o = "civ_4"
+    },
+    ["612"] = {
+      o = "civ_11"
+    },
+    ["613"] = {
+      o = "civ_0"
+    },
+    ["614"] = {
+      o = "civ_0"
+    },
+    ["615"] = {
+      o = "civ_0"
+    },
+    ["616"] = {
+      o = "civ_70"
+    },
+    ["617"] = {
+      o = "civ_70"
+    },
+    ["618"] = {
+      o = "civ_26"
+    },
+    ["619"] = {
+      o = "civ_70"
+    },
+    ["62"] = {
+      water = true
+    },
+    ["620"] = {
+      o = "civ_26"
+    },
+    ["621"] = {
+      o = "civ_4"
+    },
+    ["622"] = {
+      water = true
+    },
+    ["623"] = {
+      o = "civ_73"
+    },
+    ["624"] = {
+      o = "civ_0"
+    },
+    ["625"] = {
+      water = true
+    },
+    ["626"] = {
+      o = "civ_0"
+    },
+    ["627"] = {
+      o = "civ_70"
+    },
+    ["628"] = {
+      o = "civ_11"
+    },
+    ["629"] = {
+      o = "civ_4"
+    },
+    ["63"] = {
+      o = "civ_62"
+    },
+    ["630"] = {
+      o = "civ_0"
+    },
+    ["631"] = {
+      o = "civ_70"
+    },
+    ["632"] = {
+      water = true
+    },
+    ["633"] = {
+      o = "civ_4"
+    },
+    ["634"] = {
+      o = "civ_0"
+    },
+    ["635"] = {
+      o = "civ_73"
+    },
+    ["636"] = {
+      o = "civ_4"
+    },
+    ["637"] = {
+      o = "civ_4"
+    },
+    ["638"] = {
+      water = true
+    },
+    ["639"] = {
+      o = "civ_6"
+    },
+    ["64"] = {
+      o = "civ_62"
+    },
+    ["640"] = {
+      o = "civ_73"
+    },
+    ["641"] = {
+      o = "civ_27"
+    },
+    ["642"] = {
+      o = "civ_27"
+    },
+    ["643"] = {
+      o = "civ_27"
+    },
+    ["644"] = {
+      water = true
+    },
+    ["645"] = {
+      o = "civ_6"
+    },
+    ["646"] = {
+      o = "civ_7"
+    },
+    ["647"] = {
+      o = "civ_70"
+    },
+    ["648"] = {
+      water = true
+    },
+    ["649"] = {
+      o = "civ_0"
+    },
+    ["65"] = {
+      o = "civ_64"
+    },
+    ["650"] = {
+      o = "civ_6"
+    },
+    ["651"] = {
+      o = "civ_0"
+    },
+    ["652"] = {
+      o = "civ_6"
+    },
+    ["653"] = {
+      o = "civ_0"
+    },
+    ["654"] = {
+      o = "civ_73"
+    },
+    ["655"] = {
+      o = "civ_27"
+    },
+    ["656"] = {
+      o = "civ_27"
+    },
+    ["657"] = {
+      o = "civ_70"
+    },
+    ["658"] = {
+      water = true
+    },
+    ["659"] = {
+      o = "civ_27"
+    },
+    ["66"] = {
+      o = "civ_63"
+    },
+    ["660"] = {
+      o = "civ_3"
+    },
+    ["661"] = {
+      o = "civ_27"
+    },
+    ["662"] = {
+      o = "civ_0"
+    },
+    ["663"] = {
+      o = "civ_27"
+    },
+    ["664"] = {
+      o = "civ_3"
+    },
+    ["665"] = {
+      o = "civ_3"
+    },
+    ["666"] = {
+      water = true
+    },
+    ["667"] = {
+      o = "civ_73"
+    },
+    ["668"] = {
+      o = "civ_27"
+    },
+    ["669"] = {
+      o = "civ_3"
+    },
+    ["67"] = {
+      water = true
+    },
+    ["670"] = {
+      o = "civ_0"
+    },
+    ["671"] = {
+      o = "civ_3"
+    },
+    ["672"] = {
+      o = "civ_70"
+    },
+    ["673"] = {
+      water = true
+    },
+    ["674"] = {
+      o = "civ_70"
+    },
+    ["675"] = {
+      o = "civ_27"
+    },
+    ["676"] = {
+      o = "civ_70"
+    },
+    ["677"] = {
+      o = "civ_3"
+    },
+    ["678"] = {
+      o = "civ_3"
+    },
+    ["679"] = {
+      o = "civ_26"
+    },
+    ["68"] = {
+      o = "civ_62"
+    },
+    ["680"] = {
+      o = "civ_3"
+    },
+    ["681"] = {
+      o = "civ_0"
+    },
+    ["682"] = {
+      water = true
+    },
+    ["683"] = {
+      o = "civ_27"
+    },
+    ["684"] = {
+      o = "civ_0"
+    },
+    ["685"] = {
+      o = "civ_3"
+    },
+    ["686"] = {
+      o = "civ_27"
+    },
+    ["687"] = {
+      water = true
+    },
+    ["688"] = {
+      o = "civ_27"
+    },
+    ["689"] = {
+      o = "civ_71"
+    },
+    ["69"] = {
+      o = "civ_64"
+    },
+    ["690"] = {
+      o = "civ_0"
+    },
+    ["691"] = {
+      o = "civ_3"
+    },
+    ["692"] = {
+      o = "civ_27"
+    },
+    ["693"] = {
+      water = true
+    },
+    ["694"] = {
+      water = true
+    },
+    ["695"] = {
+      o = "civ_71"
+    },
+    ["696"] = {
+      o = "civ_71"
+    },
+    ["697"] = {
+      o = "civ_71"
+    },
+    ["698"] = {
+      water = true
+    },
+    ["699"] = {
+      o = "civ_27"
+    },
+    ["7"] = {
+      o = "Undeveloped_land"
+    },
+    ["70"] = {
+      o = "civ_64"
+    },
+    ["700"] = {
+      o = "civ_71"
+    },
+    ["701"] = {
+      o = "civ_0"
+    },
+    ["702"] = {
+      o = "civ_3"
+    },
+    ["703"] = {
+      o = "civ_70"
+    },
+    ["704"] = {
+      water = true
+    },
+    ["705"] = {
+      water = true
+    },
+    ["706"] = {
+      o = "civ_70"
+    },
+    ["707"] = {
+      o = "civ_70"
+    },
+    ["708"] = {
+      water = true
+    },
+    ["709"] = {
+      o = "civ_27"
+    },
+    ["71"] = {
+      o = "civ_62"
+    },
+    ["710"] = {
+      o = "civ_70"
+    },
+    ["711"] = {
+      o = "Undeveloped_land"
+    },
+    ["712"] = {
+      o = "civ_27"
+    },
+    ["713"] = {
+      o = "civ_70"
+    },
+    ["714"] = {
+      o = "civ_27"
+    },
+    ["715"] = {
+      o = "Undeveloped_land"
+    },
+    ["716"] = {
+      o = "Undeveloped_land"
+    },
+    ["72"] = {
+      water = true
+    },
+    ["73"] = {
+      o = "civ_62"
+    },
+    ["74"] = {
+      o = "civ_63"
+    },
+    ["75"] = {
+      o = "civ_67"
+    },
+    ["76"] = {
+      o = "civ_62"
+    },
+    ["77"] = {
+      water = true
+    },
+    ["78"] = {
+      o = "civ_59"
+    },
+    ["79"] = {
+      o = "civ_69"
+    },
+    ["8"] = {
+      o = "Undeveloped_land"
+    },
+    ["80"] = {
+      o = "civ_62"
+    },
+    ["81"] = {
+      o = "civ_69"
+    },
+    ["82"] = {
+      water = true
+    },
+    ["83"] = {
+      water = true
+    },
+    ["84"] = {
+      o = "civ_69"
+    },
+    ["85"] = {
+      o = "civ_66"
+    },
+    ["86"] = {
+      water = true
+    },
+    ["87"] = {
+      o = "civ_59"
+    },
+    ["88"] = {
+      water = true
+    },
+    ["89"] = {
+      o = "civ_62"
+    },
+    ["9"] = {
+      o = "Undeveloped_land"
+    },
+    ["90"] = {
+      water = true
+    },
+    ["91"] = {
+      o = "civ_62"
+    },
+    ["92"] = {
+      o = "civ_65"
+    },
+    ["93"] = {
+      water = true
+    },
+    ["94"] = {
+      water = true
+    },
+    ["95"] = {
+      water = true
+    },
+    ["96"] = {
+      o = "civ_63"
+    },
+    ["97"] = {
+      o = "civ_65"
+    },
+    ["98"] = {
+      o = "civ_59"
+    },
+    ["99"] = {
+      water = true
+    }
+  },
+  scenario_n = 1,
+  technology_lvl = 12,
   year = 1700
 }
 return t
