@@ -376,7 +376,6 @@ local t = {
 			},
 		},
 	},
-	},
 	espionage = {
 		{
 			id = "intelligence_agency",
