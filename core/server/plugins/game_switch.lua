@@ -26,6 +26,16 @@ local function check_permission(list, uuid1)
 	end
 end
 
+local scenarios = {
+	europe = {
+		millenium = require "scripts.scenarios.europe.millenium",
+		wwi = require "scripts.scenarios.europe.wwi",
+		great_northern_war = require "scripts.scenarios.europe.great_northern_war",
+		crimean_war = require "scripts.scenarios.europe.crimean_war",
+		modern_world = require "scripts.scenarios.europe.modern_world",
+	}
+}
+
 -- local scenarios = {
 -- 	europe = {
 -- 		millenium = require "scripts.scenarios.europe.millenium",
@@ -111,19 +121,6 @@ end
 -- 	-- 	world_2014 = require "scripts.scenarios.Atlanta.world_2014",
 -- 	-- }
 -- }
-
-local scenarios = {
-	europe = {
-		millenium = require "scripts.scenarios.europe.millenium",
-		wwi = require "scripts.scenarios.europe.wwi",
-		great_northern_war = require "scripts.scenarios.europe.great_northern_war",
-		crimean_war = require "scripts.scenarios.europe.crimean_war",
-		modern_world = require "scripts.scenarios.europe.modern_world",
-	},
-	america = {
-		modern_world = require "scripts.scenarios.america.modern_world"
-	}
-}
 
 local next_map
 local next_scenario
