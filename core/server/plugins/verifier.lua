@@ -14,7 +14,7 @@ end
 
 local api
 
--- local verification_mode = "kick" -- ignore, log, kick
+local verification_mode = "kick" -- ignore, log, kick
 
 local verification_server_ip
 local verification_server_port
@@ -56,8 +56,11 @@ function M.init(_api)
 end
 
 function M.verify_registration(client, client_data)
-    client_data.premium = true
-    return true
+	return true
+	-- if not server_settings.verify_uuid then
+	-- 	return true
+	-- end
+
 	-- local license = true
 	-- pprint("Verify client data:", client_data)
 	-- if client_data.device == "Android" then

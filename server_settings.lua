@@ -3,7 +3,7 @@ local t = {
 		type = "server_info",
 		data = {
 			--Server name
-			name = "[WG] 2x2x: Технические шоколадки >:3",
+			name = "[WG] 2x2x - Классический варгейм",
 			server_prefix = "<color=#8cd4ff>**</color> > ",
 			error_prefix = "<color=#cc0000>ОШИБКА</color> > ",
 			-- Icon URL
@@ -24,8 +24,8 @@ local t = {
 	Do not touch in order to allow players to join. Update the server.--]]
 	SERVER_VERSION = 21,
 	-- Maximum amount of time per turn. Seconds
-	time_to_turn = 130,
-	verify_uuid = true,
+	time_to_turn = 120,
+	verify_uuid = false,
 	minimum_played_time = 0,
 	plugin = {
 		welcome = [[

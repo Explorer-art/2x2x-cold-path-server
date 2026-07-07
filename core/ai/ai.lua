@@ -8,6 +8,8 @@ local core = require "core.core"
 local offers = require "core.offers"
 local balance_of_power = require "core.ai.balance_of_power"
 local buildings = require "core.ai.buildings"
+local adaptive_difficulty = require "core.ai.adaptive_difficulty"
+local weapons_optimizer = require "core.ai.weapons_optimizer"
 local espionage_ai = require "core.ai.espionage_ai"
 local difficulty
 
@@ -254,7 +256,7 @@ local function calc_strategy(land)
 	game_data.lands[land].tax = ai_data.strategy[game_data.lands[land].ai.strategy.strategy_type].tax
 
 	local t = {
-		"republic", "trade_republic", "democracy", "monarchy", "theocracy", "communism", "fascism", "anarchism"
+		"republic", "trade_republic", "democracy", "monarchy", "theocracy", "communism", "fascism", "anarchism", "technocracy", "military_junta"
 	}
 
 	if game_data.step > 1 then
@@ -306,6 +308,14 @@ local function calc_diplomacy(land)
 				accept_offer(v[1])
 			end
 			-- perfomance.finish_state("trade")
+		elseif v[2] == "invite_war" then
+			-- Decide whether to accept an ally's call to war
+			-- v = { id, "invite_war", from, to(=land), enemy }
+			local from = v[3]
+			local enemy = v[5]
+			if ai_utils.accept_war_invitation(land, from, enemy) then
+				accept_offer(v[1])
+			end
 		end
 	end
 end
@@ -323,7 +333,10 @@ local function calc_expenses(land)
 		army_budget = 0
 	end
 
-	ai_utils.balance_army(land, army_budget * game_values.army_cost, difficulty)
+	-- Technocracy cannot recruit population; its army comes from robot factories instead.
+	if game_data.lands[land].ideology ~= "technocracy" then
+		ai_utils.balance_army(land, army_budget * game_values.army_cost, difficulty)
+	end
 
 	buildings.build(land, budget)
 
@@ -379,11 +392,8 @@ local function calc_army(land)
 		return
 	end
 	if not scenarios_modifiers[game_data.id] or not scenarios_modifiers[game_data.id].only_move then
-		ai_utils.shell(land)
-		ai_utils.planes(land)
-		ai_utils.chemical(land)
-		ai_utils.tank(land)
-		ai_utils.nuclear(land)
+		-- Use optimized weapon system for coordinated attacks
+		weapons_optimizer.execute_weapons_strategy(land)
 	end
 	difficulty.move_army(land)
 	ai_utils.return_army(land)
@@ -423,6 +433,8 @@ function M.init(_is_player_function)
 		ruined_civilization = function(land, destroyer)
 			balance_of_power.update_balance(is_player_function)
 		end,
+		accepted_trade = function(land1, land2)
+		end,
 	}
 	for k, v in pairs(events_functions) do
 		event_system.on(k, v)
@@ -436,6 +448,12 @@ function M.handle()
 
 	-- Update the difficulty data so that we can change the difficulty during the game
 	difficulty = M.difficulty_list[game_data.difficulty]
+
+	-- Apply adaptive difficulty if enabled
+	difficulty = adaptive_difficulty.apply(difficulty, is_player_function)
+	
+	-- Check for anti-player coalition formation
+	adaptive_difficulty.form_anti_player_coalition(is_player_function)
 
 	-- local profiler = require "scripts.utils.profiler"
 	-- profiler.start()

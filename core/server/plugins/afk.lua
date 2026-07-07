@@ -51,8 +51,4 @@ function M.on_data(data, ip, port, client)
 	end
 end
 
-function M.get_last_sync()
-	return last_sync
-end
-
 return M
