@@ -24,7 +24,7 @@ local resources_count_limits = {
 	},
 	uranium = {
 		min = 12,
-		max = 35
+		max = 70
 	}
 }
 
@@ -41,10 +41,10 @@ end
 
 local function fill_province(province, resource, resource_counts)
 	if lume.random(0,100) < resources_chance[resource] then
-	    province.r[resource] = {
-		    count = lume.randomchoice(resource_counts),
-		    requirment = lume.randomchoice(resources_requirments[resource])
-	    }
+		province.r[resource] = {
+			count = lume.randomchoice(resource_counts),
+			requirment = lume.randomchoice(resources_requirments[resource])
+		}
 	end
 end
 

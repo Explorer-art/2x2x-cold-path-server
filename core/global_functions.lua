@@ -510,9 +510,7 @@ function air_protected(land, province, lvl)
 	lvl = lvl or 1
 	if not game_data.provinces[province].water and
 	game_data.provinces[province].b.air_defense and game_data.provinces[province].b.air_defense >= lvl then
-		if math.random() < game_values.missile_defense_chance then
-			return true, province
-		end
+		return true, province
 	end
 	--Radius 3
 	for k, v in pairs(adjacency_map[province]) do
@@ -548,7 +546,9 @@ end
 
 function missile_protected(land, province)
 	if not game_data.provinces[province].water and game_data.provinces[province].b.missile_defense then
-		return true, province
+		if math.random() < game_values.missile_defense_chance then
+			return true, province
+		end
 	end
 	return false
 end

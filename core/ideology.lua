@@ -89,7 +89,7 @@ function M.army_attack_bonus(land, to_land)
         end
     elseif i == "anarchism" and to_land and get_num_of_provinces(to_land) > get_num_of_provinces(land) then
         local k = math.floor(get_num_of_provinces(to_land)/10)
-        
+
         return math.pow(game_values.ideology.anarchism_attack_bonus, k)
     elseif i == "military_junta" then
         return game_values.ideology.military_junta_attack_bonus

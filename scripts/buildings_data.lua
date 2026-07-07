@@ -8,37 +8,37 @@ local t = {
 			lvl = {
 				[1] = {
 					input = {
-						["extract:gold"] = 20,
+						["extract:gold"] = 10,
 					},
 					output = {
-						["resource:gold"] = 20,
+						["resource:gold"] = 10,
 					},
 					cost = 2500,
 				},
 				[2] = {
 					input = {
-						["extract:gold"] = 40,
+						["extract:gold"] = 20,
 					},
 					output = {
-						["resource:gold"] = 40,
+						["resource:gold"] = 20,
 					},
 					cost = 5000,
 				},
 				[3] = {
 					input = {
-						["extract:gold"] = 60,
+						["extract:gold"] = 30,
 					},
 					output = {
-						["resource:gold"] = 60,
+						["resource:gold"] = 30,
 					},
 					cost = 10000,
 				},
 				[4] = {
 					input = {
-						["extract:gold"] = 80,
+						["extract:gold"] = 40,
 					},
 					output = {
-						["resource:gold"] = 80,
+						["resource:gold"] = 40,
 					},
 					cost = 20000,
 				},
@@ -58,28 +58,28 @@ local t = {
 			lvl = {
 				[1] = {
 					input = {
-						["resource:gold"] = 60,
+						["resource:gold"] = 30,
 					},
 					output = {
-						["gold"] = 6000,
+						["gold"] = 3000,
 					},
 					cost = 10000,
 				},
 				[2] = {
 					input = {
-						["resource:gold"] = 100,
+						["resource:gold"] = 60,
 					},
 					output = {
-						["gold"] = 10000,
+						["gold"] = 6000,
 					},
 					cost = 20000,
 				},
 				[3] = {
 					input = {
-						["resource:gold"] = 150,
+						["resource:gold"] = 100,
 					},
 					output = {
-						["gold"] = 15000,
+						["gold"] = 10000,
 					},
 					cost = 40000,
 				},
@@ -90,21 +90,21 @@ local t = {
 			lvl = {
 				[1] = {
 					output = {
-						["gold"] = 1000,
+						["gold"] = 500,
 					},
 					cost = 5000,
 				},
 				[2] = {
 					output = {
-						["gold"] = 3000,
+						["gold"] = 1500,
 					},
-					cost = 15000,
+					cost = 10000,
 				},
 				[3] = {
 					output = {
-						["gold"] = 5000,
+						["gold"] = 2500,
 					},
-					cost = 25000,
+					cost = 15000,
 				},
 			}
 		},
@@ -144,7 +144,7 @@ local t = {
 						["science"] = 10,
 					},
 					cost = 150000,
-				}
+				},
 			}
 		},
 	},
@@ -169,11 +169,11 @@ local t = {
 			id = "fortress",
 			lvl = {
 				[1] = {
-					defense_bonus = 1.6,
+					defense_bonus = 1.4,
 					cost = 2500,
 				},
 				[2] = {
-					defense_bonus = 2,
+					defense_bonus = 1.8,
 					cost = 5000,
 				},
 				[3] = {
@@ -181,11 +181,11 @@ local t = {
 					cost = 10000,
 				},
 				[4] = {
-					defense_bonus = 3,
+					defense_bonus = 3.4,
 					cost = 15000,
 				},
 				[5] = {
-					defense_bonus = 4,
+					defense_bonus = 4.2,
 					cost = 20000,
 				},
 			}
@@ -241,13 +241,13 @@ local t = {
 				},
 			}
 		},
-		{ 
+		{
 			id = "bridgehead",
 			lvl = {
 				[1] = {
 					cost = 5000,
-					damage_bonus = 1.5
-				}
+					damage_bonus = 1.35
+				},
 			}
 		},
 		{ 
@@ -258,7 +258,7 @@ local t = {
 						["gold"] = 1600
 					},
 					output = {
-						["resource:weapons"] = 400
+						["resource:weapons"] = 400,
 					},
 					cost = 10000,
 				},
@@ -267,7 +267,7 @@ local t = {
 						["gold"] = 3200
 					},
 					output = {
-						["resource:weapons"] = 800
+						["resource:weapons"] = 800,
 					},
 					cost = 20000,
 				},
@@ -276,7 +276,7 @@ local t = {
 						["gold"] = 4800
 					},
 					output = {
-						["resource:weapons"] = 1200
+						["resource:weapons"] = 1200,
 					},
 					cost = 30000,
 				},
@@ -287,7 +287,7 @@ local t = {
 					output = {
 						["resource:weapons"] = 1600,
 					},
-					cost = 35000,
+					cost = 40000,
 				},
 			}
 		},
@@ -302,22 +302,22 @@ local t = {
 				[2] = {
 					air_attack_damage = 6000,
 					break_building_chance = 0.05,
-					cost = 15000,
+					cost = 20000,
 				},
 				[3] = {
 					air_attack_damage = 8000,
 					break_building_chance = 0.1,
-					cost = 25000,
+					cost = 30000,
 				},
 				[4] = {
 					air_attack_damage = 10000,
 					break_building_chance = 0.2,
-					cost = 35000,
+					cost = 40000,
 				},
 				[5] = {
 					air_attack_damage = 10000,
 					break_building_chance = 0.3,
-					cost = 45000,
+					cost = 50000,
 				},
 			}
 		},
@@ -344,7 +344,7 @@ local t = {
 						["resource:weapons"] = 1200
 					},
 					output = {
-						["resource:tank"] = 2,
+						["resource:tank"] = 1,
 					},
 					cost = 50000,
 				},

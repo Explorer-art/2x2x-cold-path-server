@@ -3,7 +3,6 @@ local M = {}
 
 local http = require "socket.http"
 local ltn12 = require"ltn12"
-local json = require "scripts.custom_utils.json"
 local flatdb = require "scripts.utils.flatdb"
 
 local api
