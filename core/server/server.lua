@@ -1347,7 +1347,7 @@ function M.change_country_name(land, name, client)
 		return
 	end
 
-	-- Изменяем название страны игрока
+	local old_name = game_data.lands[land].name
 	game_data.lands[land].name = name
 
 	update_players_list()
